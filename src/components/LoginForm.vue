@@ -85,34 +85,6 @@
   </div>
 </template>
 
-<script>
-import auth from '@/logic/auth';
-export default {
-  data: () => ({
-    email: "",
-    password: "",
-    email2recover: "",
-    serverMessage: ""
-  }),
-  methods: {
-    async login() {
-      try {
-        const response = await auth.login(this.email, this.password);
-        auth.setUserLogged(response.headers.session);
-        auth.setUserRole(response.data.role);
-        this.$router.push({name: "Dashboard"});
-      } catch(e) {
-        if(!e.response) this.serverMessage = "Servidor Inhabilitado temporalmente";
-        else if(e.response) this.serverMessage = e.response.data.server;
-        setInterval(() => this.serverMessage = "", 15000);
-      }
-    },
-    recovery() {
-      console.log(this.email2recover)
-    }
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .container {
