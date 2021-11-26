@@ -1,36 +1,32 @@
 import { createWebHistory, createRouter } from "vue-router";
 
-import auth from '@/logic/auth';
+// import auth from '@/logic/auth';
 
-import Login from "@/views/Login.vue";
+// import Login from "@/views/Login.vue";
 import Dashboard from "@/views/Dashboard.vue";
+// import LandingPage from "@/views/LandingPage.vue";
+import Welcome from "@/views/Welcome.vue";
 
 const routes = [
-  {
-    path: "/",
-    name: "Login",
-    component: Login,
-    beforeEnter(to, from, next) {
-      if(auth.getUserLogged()) {
-        next("/dashboard");
-      }
-      else {
-        next();
-      }
-    }
-  },
+  // {
+  //   path: "/",
+  //   name: "Login",
+  //   component: Login,
+  // },
   {
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
-    beforeEnter(to, from, next) {
-      if(auth.getUserLogged()) {
-        next();
-      }
-      else {
-        next("/");
-      }
-    }
+  },
+  // {
+  //   path: "/",
+  //   name: "LandingPage",
+  //   component: LandingPage,
+  // },
+  {
+    path: "/",
+    name: "Welcome",
+    component: Welcome,
   },
 ];
 

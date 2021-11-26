@@ -1,11 +1,12 @@
 <template>
+
   <router-view />
 </template>
 
 <script>
-export default {
-  name: "App",
-};
+  export default {
+    name: "App",
+  };
 </script>
 
 <style>
@@ -14,12 +15,15 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   top: 0;
+  background: azure;
 }
+
 #app {
   font-family: 'Montserrat', serif;
   -webkit-font-smoothing: antialiased;

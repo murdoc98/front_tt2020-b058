@@ -20,16 +20,16 @@ export default {
   components: {
   },
   data: () => ({
-    name: '',
-    surname: '',
-    secondSurname: '',
-    lada: '',
-    phoneNumber: '',
+    name: 'Arturo',
+    surname: 'Jacome',
+    secondSurname: 'Mohamed',
+    lada: '55',
+    phoneNumber: '18',
     sex: undefined,
     age: undefined,
-    email: '',
-    role: '',
-    lastLogin: ''
+    email: '10',
+    role: 'admin',
+    lastLogin: '10/10/2010'
   }),
   methods: {
     sidebarStatus(value) {
