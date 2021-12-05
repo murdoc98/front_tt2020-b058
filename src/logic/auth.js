@@ -1,29 +1,33 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const ENDPOINT_PATH = "http://localhost:1025/api/";
+const api = 'http://localhost:1025/api/';
 
 export default {
-  setUserLogged(userLogged) {
+  setUserToken(token) {
     const in30minutes = 1/48;
-    Cookies.set("userLogged", userLogged, in30minutes);
+    Cookies.set('token', token, in30minutes);
   },
-  getUserLogged() {
-    return Cookies.get("userLogged");
+  getUserToken() {
+    return Cookies.get('token');
   },
   setUserRole(role) {
     const in30minutes = 1/48;
-    Cookies.set("userRole", role, in30minutes);
+    Cookies.set('role', role, in30minutes);
   },
   getUserRole() {
-    return Cookies.get("userRole");
+    return Cookies.get('role');
   },
-  login(email, password) {
+  teachersLogin(email, password) {
     const user = { email, password };
-    return axios.post(ENDPOINT_PATH + "login", user);
+    return axios.post(`${api}/teachers/auth/login`, user);
+  },
+  studentsLogin(email, password) {
+    const user = { email, password };
+    return axios.post(`${api}/students/auth/login`, user);
   },
   logout() {
-    Cookies.remove("userLogged");
-    Cookies.remove("userRole");
+    Cookies.remove('userLogged');
+    Cookies.remove('userRole');
   }
 };

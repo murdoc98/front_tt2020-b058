@@ -1,11 +1,12 @@
 import { createWebHistory, createRouter } from "vue-router";
 
-// import auth from '@/logic/auth';
+import auth from '@/logic/auth';
 
 // import Login from "@/views/Login.vue";
-import Dashboard from "@/views/Dashboard.vue";
-import LandingPage from "@/views/LandingPage.vue";
-// import Welcome from "@/views/Welcome.vue";
+// import Dashboard from "@/views/Dashboard.vue"; // Deprecated
+import LandingPage from "@/views/LandingPage.vue"; // Dashboard de estudiantes y profesores PRIMERA
+import TeachersDashboard from "@/views/TeachersDashboard.vue"; // Primera pagina
+import TeachersLogin from '@/views/TeachersLogin';
 
 const routes = [
   // {
@@ -13,21 +14,32 @@ const routes = [
   //   name: "Login",
   //   component: Login,
   // },
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: Dashboard,
-  },
+  //{
+  //  path: "/dashboard",
+  //  name: "Dashboard",
+  //  component: Dashboard,
+  //},
   {
     path: "/",
     name: "LandingPage",
     component: LandingPage,
-  },
-  // {
-  //   path: "/",
-  //   name: "Welcome",
-  //   component: Welcome,
-  // },
+  }, {
+    path: "/teachers/dashboard",
+    name: "TeachersDashboard",
+    component: TeachersDashboard,
+    beforeEnter(to, from, next) {
+      if(!auth.getUserToken()) {
+        next("/");
+      }
+      else {
+        next();
+      }
+    }
+  }, {
+    path: "/teachers/login",
+    name: 'TeachersLogin',
+    component: TeachersLogin
+  }
 ];
 
 const router = createRouter({
