@@ -4,8 +4,8 @@ import { createWebHistory, createRouter } from "vue-router";
 
 // import Login from "@/views/Login.vue";
 import Dashboard from "@/views/Dashboard.vue";
-// import LandingPage from "@/views/LandingPage.vue";
-import Welcome from "@/views/Welcome.vue";
+import LandingPage from "@/views/LandingPage.vue";
+// import Welcome from "@/views/Welcome.vue";
 
 const routes = [
   // {
@@ -18,16 +18,16 @@ const routes = [
     name: "Dashboard",
     component: Dashboard,
   },
-  // {
-  //   path: "/",
-  //   name: "LandingPage",
-  //   component: LandingPage,
-  // },
   {
     path: "/",
-    name: "Welcome",
-    component: Welcome,
+    name: "LandingPage",
+    component: LandingPage,
   },
+  // {
+  //   path: "/",
+  //   name: "Welcome",
+  //   component: Welcome,
+  // },
 ];
 
 const router = createRouter({

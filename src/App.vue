@@ -16,13 +16,12 @@
   box-sizing: border-box;
 }
 
-html, body {
+/* html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   top: 0;
-  background: azure;
-}
+} */
 
 #app {
   font-family: 'Montserrat', serif;

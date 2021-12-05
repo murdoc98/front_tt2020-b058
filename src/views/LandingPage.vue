@@ -1,238 +1,182 @@
 <template>
 
-    <div class="instruction">
-        <h1>SELECCIONA TU ROL</h1>
-    </div>
+  <!-- ENCABEZADO -->
+  <header>
+   
+  </header>
 
-    <div class="body-inicio"> 
-        
-        <div class="container">
-            
-
-            <div class="card">
-                <div class="content">
-                    <h2>ESTUDIANTE</h2>
-                        <p>
-                            No te rindas nunca porque nunca sabes si el próximo intento será el que funcionará.
-                        </p>
-                    <a href="#">Empezar</a>
-                </div>
-                <img style="margin-bottom:40px;" src="../assets/landingPage/Student.svg">
-            </div>
-
-            <div class="card-profesor">
-                <div class="content">
-                    <h2>Profesor</h2>
-                        <p>
-                            Puedes enseñar una lección un día; pero si puedes enseñar creando curiosidad, el aprendizaje será un proceso para toda la vida 
-                        </p>
-                    <a href="#">Empezar</a>
-                </div>
-                <img src="../assets/landingPage/Teacher.svg">
-            </div>
+  <!-- NavBar -->
+  <nav class="navbar navbar-light mb-5">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/logoElements/Logo-Horizontal-Completo.png" width="240" height="58" class="d-inline-block align-cneter" alt="">
+    </a>
+  </nav>
+  
+  <!-- Carusel -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide container" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="../assets/slider/Eva-carusel-001.png" style="border-radius:20px;" alt="First slide">
         </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="../assets/slider/Eva-carusel-002.png" style="border-radius:20px;" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="../assets/slider/Eva-carusel-003.png" style="border-radius:20px;" alt="Third slide">
+        </div>
+      </div>
+  </div>
+
+  
+
+  <section class="w-50 mx-auto text-center pt-5" id="intro">
+    
+    <h1 class="p-3 fs-2 border-top border-3">Una agencia única para todas tus necesidades de <span class="text-primary">Marketing Digital</span></h1>
+    <p class="p-3 fs-4"><span class="text-primary">EVA.IO </span> es la agencia donde te ayudamos a establecer tu precencia online SEO paginas Web, tiendas virtuales redes sociales</p>
+  </section>
+
+  <!-- Servicios -->
+  <section class="container-fluid">
+    <div class="row w-74 mx-auto my-5 servicio-fila">
+      
+      <div class="col-lg-6 col-md-12 col-sm-12 d-flex  my-5 icono-wrap">
+        <img src="../assets/logoElements/iconEvaIO.png" alt="desarrollo">
+        <div>
+          <h3 class="fs-5 mt-4 px-4 pb-1">Desarrollo</h3>
+          <p class="px-4">Desarrollo de aplicaciones WEB, moviles y e-comerce</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-12 col-sm-12 d-flex  my-5 icono-wrap">
+        <img src="../assets/logoElements/iconEvaIO.png" alt="desarrollo">
+        <div>
+          <h3 class="fs-5 mt-4 px-4 pb-1">Desarrollo</h3>
+          <p class="px-4">Desarrollo de aplicaciones WEB, moviles y e-comerce</p>
+        </div>
+      </div>
     </div>
+
+    <div class="row w-74 mx-auto my-5 servicio-fila">
+      
+      <div class="col-lg-6 col-md-12 col-sm-12 d-flex  my-5 icono-wrap">
+        <img src="../assets/logoElements/iconEvaIO.png" alt="desarrollo">
+        <div>
+          <h3 class="fs-5 mt-4 px-4 pb-1">Desarrollo</h3>
+          <p class="px-4">Desarrollo de aplicaciones WEB, moviles y e-comerce</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-12 col-sm-12 d-flex  my-5 icono-wrap">
+        <img src="../assets/logoElements/iconEvaIO.png" alt="desarrollo">
+        <div>
+          <h3 class="fs-5 mt-4 px-4 pb-1">Desarrollo</h3>
+          <p class="px-4">Desarrollo de aplicaciones WEB, moviles y e-comerce</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Nosotros -->
+  <section>
+    <div class="w-50 m-auto text-center" id="equipo">
+      <h1 class="mb-5 fs-2">Equipo pequeño con <span class="fs-4"> resultados grandes</span></h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et optio magni, quaerat 
+        quia exercitationem animi est doloribus consequuntur, laboriosam unde totam cupiditate 
+        molestiae nobis, maxime incidunt laudantium voluptatibus ex ea!</p>
+    </div>
+
+    <div class="mt-5 text-center">
+      <img class="img-fluid" src="../assets/logoElements/iconEvaIO.png" alt="equipo">
+    </div>
+  </section>
+  
+  <!-- Footer -->
+
+  <section class="">
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: #0a4275;">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: CTA -->
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3">Register for free</span>
+          <button type="button" class="btn btn-outline-light btn-rounded">
+            Sign up!
+          </button>
+        </p>
+      </section>
+      <!-- Section: CTA -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</section>
+
+
+
 
 </template>
 
-<style>
+<style lang="scss" scoped>
 
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+  .carousel-inner
+  {
+    max-height: 39rem;
+  }
 
-    
+  .navbar
+  {
+    justify-content: center;
+  }
 
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  
 
-    .header-landingpage
+  @media (max-width:768px) {
+    #intro, #equipo
     {
-        text-align: center;
+      width: 90% !important;
     }
 
-    .body-inicio{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 50vh;
-        background-color: azure;
-    }
-
-    #verticalEvaIO
+    .servicio-fila
     {
-        width: 115px;
-        margin-top: 10px;
-        margin-left: 10px;
+      width: 100% !important;
+      text-align: center;
     }
+  }
 
-    .header-container{
-        text-align: center;
-        margin: 0px;
-        padding: 0px;
-        font-family: 'Open Sans', sans-serif;
+  @media (max-width: 576px) {
+    .icono-wrap
+    {
+      flex-wrap: wrap;
+      justify-content: center !important;
     }
+  }
 
-    .container{
-        position: relative;
-        display: flex;
-        justify-items: center;
-        align-items: center;
-    }
+  footer{
+    background: blue;
+    min-height: 100px;
+  }
 
-    .container{
-        position: relative;
-        display: flex;
-        justify-items: center;
-        align-items: center;
-    }
+  footer p
+  {
+    color: blanchedalmond;
+    text-align: center;
+  }
 
-    .container .card{
-        position: relative;
-        width: 600px;
-        height: 370px;
-        margin: 20px;
-        display: flex;
-        transition: 0.5s;
-        justify-content: flex-start;
-        align-items: center;
-        background-image: radial-gradient(circle at 100.26% 50%, #cfffdc 0, #c1ffdc 12.5%, #b4ffdb 25%, #a8fed9 37.5%, #9df2d5 50%, #94e5d0 62.5%, #8cdacb 75%, #86d0c7 87.5%, #82c7c2 100%);
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-        border-radius: 50px;
-    }
-
-    .container .card-profesor{
-        position: relative;
-        width: 600px;
-        height: 370px;
-        margin: 20px;
-        display: flex;
-        transition: 0.5s;
-        justify-content: flex-start;
-        align-items: center;
-        background-image: radial-gradient(circle at 120.44% 56.16%, #ffffff 0, #dffbff 25%, #b5def2 50%, #8bc1dd 75%, #65a8cb 100%);
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-        border-radius: 50px;
-    }
-
-    .container .card img{
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%);
-        height: 300px;
-        transition: 0.5s;
-    }
-
-    .container .card-profesor img{
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%);
-        height: 260px;
-        transition: 0.5s;
-        margin-bottom: 50px;
-    }
-
-    .container .card:hover img{
-        left: 75%;
-        height: 300px;   
-    }
-
-    .container .card-profesor:hover img{
-        left: 75%;
-        height: 260px;   
-    }
-
-    .container .card .content, .card-profesor .content{
-        position: relative;
-        width: 50%;
-        left: 20%;
-        padding: 20px 20px 20px 40px;
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.5s;
-    }
-
-    .container .card:hover .content, .card-profesor:hover .content{
-        left: 0;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .container .card .content h2, .card-profesor .content h2{
-        color: #fff;
-        text-transform: uppercase;
-        font-size: 2.2em;
-        line-height: 2em;
-        font-family: 'Open Sans', sans-serif;
-        letter-spacing: 2px;
-    }
-
-    .container .card .content p, .card-profesor .content p{
-        color: #fff;
-        font-family: 'Open Sans', sans-serif;
-    }
-
-    .container .card .content a, .card-profesor .content a{
-        position: relative;
-        color: #111;
-        background: #fff;
-        display: inline-block;
-        padding: 10px 20px;
-        margin-top: 20px;
-        text-decoration: none;
-        font-weight: 700;
-        border-radius: 50px;
-        font-family: 'Open Sans', sans-serif;
-    }
-
-    @media (max-widith: 991px) {
-        .container .card{
-            width: auto;
-            max-width: 600px;
-            align-items: flex-start;
-        }
-
-        .container .card:hover{
-            height: 600px;
-        }
-
-        .container .card:hover img{
-            left: 50%;
-            height: 350px;
-        }nathan
-
-        .container .card .content{
-            width: 100px;
-            left: 0;
-            padding: 40px
-        }
-        
-    }
-
-    @media (max-widith: 767px){
-        .container{
-            flex-direction: column;
-        }
-
-        .container .card{
-            margin: 40px 20px;
-        }
-    }
-
-    @media (max-widith: 420px){
-        .container .card .content{
-            padding: 30;
-        }
-        .container .card:hover img{
-            left: 50%;
-            height: 300px;
-        }
-    }
-
+  #iconos i{
+    font-size: 26px;
+    padding: 0 8px;
+    color: blanchedalmond;
+  }
 
 
 </style>
