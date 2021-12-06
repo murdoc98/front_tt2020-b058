@@ -51,6 +51,29 @@
     <p class="p-3 fs-4"><span class="text-primary">Eva.io </span> es el portal donde puedes reforzar todo lo aprendido sobre tus clases de matemáticas </p>
   </section>
 
+  <div class="buttons">
+    <button class="blob-btn btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+      Comenzamos
+      <span class="blob-btn__inner">
+        <span class="blob-btn__blobs">
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+        </span>
+      </span>
+    </button>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+              <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+            </filter>
+          </defs>
+        </svg>
+  </div>
+
   <div class="custom-shape-divider-bottom-1638685795">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
@@ -151,9 +174,9 @@
       <!-- Section: CTA -->
       <section class="">
         
-          <div class="buttons">
-          <button class="blob-btn">
-              Acceder
+        <div class="buttons">
+          <button class="blob-btn btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+              Comenzamos
               <span class="blob-btn__inner">
                 <span class="blob-btn__blobs">
                   <span class="blob-btn__blob"></span>
@@ -172,7 +195,7 @@
                   </filter>
                 </defs>
               </svg>
-          </div>
+        </div>
       </section>
       <!-- Section: CTA -->
     </div>
@@ -186,12 +209,27 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+
+
 </section>
 
-
-
-
 </template>
+
+<script>
+//import PopupRole from '@/components/PopupRole';
+//import Test from '@/components/Test';
+
+  export default {
+    name: 'LandingPage',
+    
+    components: {
+      //PopupRole,
+      //Test,
+    },
+  }
+</script>
+
+
 <style lang="scss" scoped>
 
   /* 1 */  
@@ -349,10 +387,10 @@
     fill: #E9EEBA;
 }
 
-  .carousel-inner
-  {
-    max-height: 39rem;
-  }
+  //.carousel-inner
+  //{
+    //max-height: 39rem;
+  //}
 
   .navbar
   {
@@ -408,7 +446,6 @@
   }
 
   .buttons {
-  margin-top: 50px;
   text-align: center;
   border-radius:30px;
 }
@@ -422,7 +459,7 @@ $borderW: 2px;
   z-index: 1;
   position: relative;
   padding: 20px 46px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   text-align: center;
   text-transform: uppercase;
   color: $cyan;
@@ -521,5 +558,11 @@ $borderW: 2px;
       }
     }
   }
+
+  /* RESPONSIVE*/
+
+  /* HIGH RESOLUTIONS */
+  
+  
 }
 </style>

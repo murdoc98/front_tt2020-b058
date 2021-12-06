@@ -7,6 +7,7 @@ import auth from '@/logic/auth';
 import LandingPage from "@/views/LandingPage.vue"; // Dashboard de estudiantes y profesores PRIMERA
 import TeachersDashboard from "@/views/TeachersDashboard.vue"; // Primera pagina
 import TeachersLogin from '@/views/TeachersLogin';
+import StudentLogin from '@/views/StudentLogin';
 
 const routes = [
   // {
@@ -39,6 +40,10 @@ const routes = [
     path: "/teachers/login",
     name: 'TeachersLogin',
     component: TeachersLogin
+  },{
+    path: "/student/login",
+    name: 'StudentLogin',
+    component: StudentLogin
   }
 ];
 

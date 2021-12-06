@@ -1,6 +1,4 @@
 <template>
-    
-    <div class="popup w3-animate-top">
         <div class="popup-inner">
             <slot />
 
@@ -15,7 +13,7 @@
                     </div>
 
                     <div class="close-button">
-                        <button type="button" class="btn-close"  @click="TogglePopup()"></button>
+                        <button type="button" class="btn-close"   data-dismiss="modal"></button>
                     </div>
                     
                 </div>
@@ -28,9 +26,9 @@
                             <div class="content-alumno">
                                 <h2>ESTUDIANTE</h2>
                                     <p>
-                                        No te rindas nunca porque nunca sabes si el próximo intento será el que funcionará.
+                                        No te rindas, nunca sabes si el próximo intento será el que funcionará.
                                     </p>
-                                <a href="#">Empezar</a>
+                                <a href="#" data-dismiss="modal" v-on:click='this.$router.push({name: "StudentLogin"})'>Empezar</a>
                             </div>
                             <img style="margin-bottom:40px;" src="../assets/landingPage/Student.svg">
                         </div>
@@ -41,24 +39,15 @@
                                     <p>
                                         Puedes enseñar una lección un día; pero si puedes enseñar creando curiosidad, el aprendizaje será un proceso para toda la vida 
                                     </p>
-                                <a href="#">Empezar</a>
+                                <a href="#" data-dismiss="modal" v-on:click='this.$router.push({name: "TeachersLogin"})'>Empezar</a>
                             </div>
                             <img src="../assets/landingPage/Teacher.svg">
                         </div>
                     </div>
                 </div>
         </div>
-    </div>
 
 </template>
-
-<script>
-
-    export default {
-        props: ['TogglePopup']
-    }
-
-</script>
 
 
 <style lang="scss" scoped>
@@ -358,6 +347,8 @@
         border-radius: 50px;
         font-family: 'Open Sans', sans-serif;
     }
+
+    
     
 
 
