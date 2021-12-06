@@ -81,7 +81,7 @@ export default {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 103px;
+    height: 45px;
 }
 
 .custom-shape-divider-bottom-1638768010 .shape-fill {

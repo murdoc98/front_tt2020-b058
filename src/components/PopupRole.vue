@@ -13,7 +13,7 @@
                     </div>
 
                     <div class="close-button">
-                        <button type="button" class="btn-close"   data-dismiss="modal"></button>
+                        <button type="button" class="btn-close" data-dismiss="modal"></button>
                     </div>
                     
                 </div>
