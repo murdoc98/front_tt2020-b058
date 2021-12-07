@@ -8,6 +8,7 @@ import LandingPage from "@/views/LandingPage.vue"; // Dashboard de estudiantes y
 import TeachersDashboard from "@/views/TeachersDashboard.vue"; // Primera pagina
 import TeachersLogin from '@/views/TeachersLogin';
 import StudentLogin from '@/views/StudentLogin';
+import SelectRole from '@/views/SelectRole';
 
 const routes = [
   // {
@@ -15,16 +16,22 @@ const routes = [
   //   name: "Login",
   //   component: Login,
   // },
-  //{
+  // {
   //  path: "/dashboard",
   //  name: "Dashboard",
   //  component: Dashboard,
-  //},
+  // },
   {
     path: "/",
     name: "LandingPage",
     component: LandingPage,
-  }, {
+  },
+  {
+    path: "/selectrole",
+    name: "SelectRole",
+    component: SelectRole, 
+  }, 
+  {
     path: "/teachers/dashboard",
     name: "TeachersDashboard",
     component: TeachersDashboard,
