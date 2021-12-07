@@ -52,7 +52,7 @@
   </section>
 
   <div class="buttons">
-    <button class="blob-btn btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+    <button class="blob-btn" type="button" v-on:click='this.$router.push({name: "SelectRole"});'>
       Comenzamos
       <span class="blob-btn__inner">
         <span class="blob-btn__blobs">
@@ -175,7 +175,7 @@
       <section class="">
         
         <div class="buttons">
-          <button class="blob-btn btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+          <button class="blob-btn" type="button" v-on:click='this.$router.push({name: "SelectRole"});'>
               Comenzamos
               <span class="blob-btn__inner">
                 <span class="blob-btn__blobs">

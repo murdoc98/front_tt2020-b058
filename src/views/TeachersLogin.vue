@@ -1,15 +1,15 @@
 <template>
   <div class="login-view">
-    <LoginForm/>
+    <TeacherLoginFrom/>
   </div>
 </template>
 
 <script>
-import LoginForm from '../components/TeacherLoginForm';
+import TeacherLoginFrom from '../components/TeacherLoginForm';
 export default {
-  name: 'login',
+  name: 'TeacherLogin',
   components: {
-    LoginForm
+    TeacherLoginFrom
   }
 }
 </script>

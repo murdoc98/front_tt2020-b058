@@ -7,7 +7,7 @@
                     <div class="content">
                         <h2>Alumno</h2>
                         <p>Nunca te rindas, el siguiente intento puede ser el que funcione</p>
-                        <a href="">Comenzar</a>
+                        <a href="#" v-on:click='this.$router.push({name: "StudentLogin"});'>Comenzar</a>
                     </div>
                     <img src="../assets/landingPage/Student.svg" alt="">    
                 </div>
@@ -16,7 +16,7 @@
                     <div class="content">
                         <h2>Profesor</h2>
                         <p>La docencia, es la unica profesion que crea todas las demas profesiones</p>
-                        <a href="">Comenzar</a>
+                        <a href="#" v-on:click='this.$router.push({name: "TeachersLogin"});'>Comenzar</a>
                     </div>
                     <img src="../assets/landingPage/Teacher.svg" alt="">    
                 </div>

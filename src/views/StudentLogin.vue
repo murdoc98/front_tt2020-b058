@@ -10,7 +10,7 @@
     
   <div class="login-view">
       
-    <LoginForm/>
+    <StudentLoginForm/>
 
   </div>
 
@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import LoginForm from '../components/StudentLoginForm';
+import StudentLoginForm from '../components/StudentLoginForm';
 export default {
-  name: 'login',
+  name: 'studentlogin',
   components: {
-    LoginForm
+    StudentLoginForm
   }
 }
 </script>

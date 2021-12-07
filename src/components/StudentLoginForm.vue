@@ -55,7 +55,7 @@
               
               <!-- Nombre-->
               <div class="input-box">
-                <i class="bx bx-envelope"></i>
+                <i class="bx bx-user-circle"></i>
                 <input
                   v-model="email"
                   type="email"
@@ -65,7 +65,7 @@
               </div>
               <!-- Apellidos -->
               <div class="input-box">
-                <i class="bx bx-envelope"></i>
+                <i class="bx bx-user-circle"></i>
                 <input
                   v-model="email"
                   type="email"
