@@ -5,10 +5,10 @@
     <input type="checkbox" id="flip" />
     <div class="cover">
       <div class="front">
-        <img style="margin-bottom:40px; background-color: #6cbfc3" src="../assets/landingPage/Teacher.svg">
+        <img style="margin-bottom:40px; " src="../assets/landingPage/Teacher.svg">
       </div>
       <div class="back">
-        <img style="margin-bottom:40px;" src="../assets/landingPage/Teacher.svg">
+        <img style="margin-bottom:40px; background: #2774a7;" src="../assets/landingPage/Teacher.svg">
       </div>
     </div>
     <div class="forms">
@@ -41,8 +41,6 @@
                 <input type="submit" value="Enviar" />
               </div>
               <div class="text forgot-text">
-                ¿Aún no tienes cuenta? <label for="flip">Crear Cuenta</label>
-                <br>
                 ¿Olvidaste tu contraseña? <label  data-toggle="modal" data-target="#recoveripswdModal">Recuperar</label>
               </div>
             </div>
@@ -180,7 +178,7 @@ export default {
 .container {
   position: relative;
   max-width: 850px;
-  background: #cfeedc;
+  background: #5e8fc7;
   padding: 40px 30px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   perspective: 2700px;
@@ -209,7 +207,7 @@ export default {
       position: absolute;
       height: 100%;
       width: 100%;
-      background: #cfeedc;
+      background: #5e8fc7;
       opacity: 0.1;
       z-index: 100;
       transform: rotateY(180deg);
@@ -243,7 +241,7 @@ export default {
   .forms {
     height: 100%;
     width: 100%;
-    background: #cfeedc;
+    background:#5e8fc7;
   }
   .form-content {
     display: flex;
@@ -264,7 +262,7 @@ export default {
     .text-2 {
       font-size: 26px;
       font-weight: 600;
-      color: #ff0808;
+      color: #000000;
       text-align: center;
       backface-visibility: hidden;
     }
@@ -286,7 +284,7 @@ export default {
       position: relative;
       font-size: 24px;
       font-weight: 500;
-      color: #333;
+      color: #052344;;
       &::before {
         content: "";
         position: absolute;
@@ -294,7 +292,7 @@ export default {
         bottom: 0;
         height: 3px;
         width: 30px;
-        background: #015f43;
+        background: #052344;
       }
     }
     .input-boxes {
@@ -312,7 +310,7 @@ export default {
       font-size: 14px;
       font-weight: 500;
       min-height: 18px;
-      color: rgba(190, 4, 10, 1);
+      color: #052344;
       a {
         text-decoration: none;
         &:hover {
@@ -325,18 +323,18 @@ export default {
       margin-top: 20px;
       input {
         color: #fff;
-        background: #015f43;
+        background: #052344;
         border-radius: 6px;
         padding: 0;
         cursor: pointer;
         transition: all 0.4s ease;
         &:hover {
-          background: #00412d;
+          background: #274668;
         }
       }
     }
     label {
-      color: #015f43;
+      color: #052344;
       cursor: pointer;
       &:hover {
         text-decoration: underline;
@@ -369,15 +367,19 @@ export default {
       font-weight: 500;
       border-bottom: 2px solid rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
-      background: #cfeedc;
+      background: #5e8fc7;
+      &::placeholder
+      {
+       color: #052344;
+      }
       &:focus,
       &:valid {
-        border-color: #015f43;
+        border-color: #000000;
       }
     }
     i {
       position: absolute;
-      color: #015f43;
+      color: #011329;
       font-size: 18px;
     }
   }
