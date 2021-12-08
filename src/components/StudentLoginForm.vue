@@ -158,10 +158,10 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await auth.teachersLogin(this.email, this.password);
+        const response = await auth.studentsLogin(this.email, this.password);
         auth.setUserToken(response.headers.token);
-        auth.setUserRole('teacher');
-        this.$router.push({name: 'TeachersDashboard'});
+        auth.setUserRole('student');
+        this.$router.push({name: 'StudentsDashboard'});
       } catch(e) {
         if(!e.response) this.serverMessage = "Servidor Inhabilitado temporalmente";
         else if(e.response) this.serverMessage = e.response.data.server;

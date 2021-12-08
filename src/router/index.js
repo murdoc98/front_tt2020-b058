@@ -4,11 +4,16 @@ import auth from '@/logic/auth';
 
 // import Login from "@/views/Login.vue";
 // import Dashboard from "@/views/Dashboard.vue"; // Deprecated
-import LandingPage from "@/views/LandingPage.vue"; // Dashboard de estudiantes y profesores PRIMERA
-import TeachersDashboard from "@/views/TeachersDashboard.vue"; // Primera pagina
-import TeachersLogin from '@/views/TeachersLogin';
-import StudentLogin from '@/views/StudentLogin';
-import SelectRole from '@/views/SelectRole';
+
+import LandingPage from "@/views/LandingPage.vue"; // Pagina principal
+import SelectRole from '@/views/SelectRole'; // Seleccionar rol
+
+import TeachersLogin from '@/views/TeachersLogin';  // Login Docentes
+import TeachersDashboard from "@/views/TeachersDashboard.vue"; // Dashboard Profesores
+
+import StudentLogin from '@/views/StudentLogin';  // Login Estudiantes
+import StudentsDashboard from "@/views/StudentsDashboard.vue"; // Dashboard Estudiantes
+
 
 const routes = [
   // {
@@ -25,13 +30,15 @@ const routes = [
     path: "/",
     name: "LandingPage",
     component: LandingPage,
-  },
-  {
+  },{
     path: "/selectrole",
     name: "SelectRole",
     component: SelectRole, 
-  }, 
-  {
+  },{
+    path: "/teachers/login",
+    name: 'TeachersLogin',
+    component: TeachersLogin
+  },{
     path: "/teachers/dashboard",
     name: "TeachersDashboard",
     component: TeachersDashboard,
@@ -44,14 +51,22 @@ const routes = [
       }
     }
   }, {
-    path: "/teachers/login",
-    name: 'TeachersLogin',
-    component: TeachersLogin
-  },{
     path: "/student/login",
     name: 'StudentLogin',
     component: StudentLogin
-  }
+  },{
+    path: "/student/dashboard",
+    name: "StudentsDashboard",
+    component: StudentsDashboard,
+    beforeEnter(to, from, next) {
+      if(!auth.getUserToken()) {
+        next("/");
+      }
+      else {
+        next();
+      }
+    }
+  },
 ];
 
 const router = createRouter({

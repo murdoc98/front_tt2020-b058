@@ -10,6 +10,7 @@
               alt=""
             />
           </a>
+          <h1>Profesores</h1>
           <button
             class="navbar-toggler"
             type="button"
