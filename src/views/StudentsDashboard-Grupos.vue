@@ -88,15 +88,15 @@
         <Groups v-if="status === 'Groups'"/>
       </div> -->
 
-      <div class="text-header-1">
-        <h1>Bienvenido Joven</h1>
+      <div class="container text-header-1">
+        <h1>Información de grupos</h1>
       </div>
 
-      <div class="text-header-2">
+      <!-- <div class="text-header-2">
         <h1>Promesa</h1>
-      </div>
+      </div> -->
 
-      <div class="card-section row">
+      <!-- <div class="card-section row">
 
         <div class="col-sm-6">
           <div class="card">
@@ -118,7 +118,44 @@
           </div>
         </div>
 
-      </div>
+      </div> -->
+
+      
+        
+        <div class="card-section row">
+
+          <div class="col-sm">
+            <div class="card">
+              <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">GRUPO A-1</h5>
+                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Información</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div class="card">
+              <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">GRUPO B-1</h5>
+                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Información</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div class="card">
+              <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">GRUPO C-1</h5>
+                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Información</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      
 
     </section>
   </div>
@@ -139,6 +176,39 @@
 
     
   </footer>
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Información</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="info">Grupo:</h5>
+            <h5 class="data">C-1</h5>
+          </div>
+          <div class="modal-data">
+            <h5 class="info">ID:</h5>
+            <h5 class="data">2020B058</h5>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Entendido</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
  
 
@@ -273,6 +343,8 @@ export default {
 {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 900;
+  margin-top: 50px;
+  margin-top: 50px;
 }
 
 /* TITLE SECTION */
@@ -356,15 +428,62 @@ export default {
     fill: #127B37;
 }
 
-.text-header-1
-{
-  text-align: center;
-  margin-top: 50px;
-}
 
 .text-header-2
 {
   text-align: center;
+}
+
+/* MODAL POPUP SECTION */
+
+.modal-content
+{
+  background: #2E824D;
+}
+
+.modal-title
+{
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 900;
+  text-align: center;
+}
+
+.modal-data{
+  display: flex;
+  justify-content: center;
+}
+
+.modal-data .info
+{
+  margin-right: 10px;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.modal-data .data
+{
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-weight: 600;
+  font-size: 30px;
+  color: azure;
+}
+
+.modal-header
+{
+  border-bottom: 1px solid #17412600;
+}
+
+.modal-footer
+{
+  border-top: 1px solid #17412600;
+}
+
+.modal-footer .btn {
+  background: #0b442f;
+  color: azure;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-weight: 600;
 }
 
 

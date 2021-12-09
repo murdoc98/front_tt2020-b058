@@ -7,7 +7,7 @@
     <section>
       <nav class="navbar navbar-expand-lg navbar-light">
         
-        <a class="navbar-brand" v-on:click='this.$router.push({name: "StudentsDashboardGrupos"});' href="">
+        <a class="navbar-brand" href="/student/dashboard" v-on:click='this.$router.push({name: "StudentsDashboardGrupos"});'>
           <img
             class="icon_EvaIO"
             src="../assets/logoElements/iconEvaIO.png"
@@ -30,9 +30,10 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             
-            <a class="nav-item nav-link" href="#" v-on:click='this.$router.push({name: "StudentDashboardGrupos"});'>Grupos</a
+            <a class="nav-item nav-link" href="#" v-on:click='this.$router.push({name: "StudentDashboardGrupos"});'
+              >Grupos</a
             >
-            <a class="nav-item nav-link" href="#" v-on:click='this.$router.push({name: "StudentsDashboardGruposCuestionarios"});'>Cuestionarios</a>
+            <a class="nav-item nav-link" href="#" >Cuestionarios</a>
 
             <hr class="divider-menu mobile" color="black" />
 
@@ -73,6 +74,7 @@
             </ul>
 
           </div>
+
         </div>
 
           
@@ -82,44 +84,36 @@
     </section>
 
     <!-- Body -->
-    <section>
+    <section class="container">
 
       <!-- <div class="welcome-body" style="background: #ABD7C7">
         <Groups v-if="status === 'Groups'"/>
       </div> -->
 
       <div class="text-header-1">
-        <h1>Bienvenido Joven</h1>
+        <h1>Ver Perfil</h1>
       </div>
 
-      <div class="text-header-2">
-        <h1>Promesa</h1>
-      </div>
-
-      <div class="card-section row">
-
-        <div class="col-sm-6">
-          <div class="card">
-            <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
+        <div class="card">
             <div class="card-body">
-              <h5 class="card-title">VER MIS GRUPOS</h5>
-              <a href="#" v-on:click='this.$router.push({name: "StudentDashboardGrupos"});' class="btn btn-primary">Vamos</a>
+                <div class="ver-perfil">
+                    <h5 class="info">Nombre:</h5>
+                    <h5 class="data">Arturo Mohamed</h5>
+                </div>
+                <div class="ver-perfil">
+                    <h5 class="info">Apellidos Paterno:</h5>
+                    <h5 class="data">Jácome</h5>
+                </div>
+                <div class="ver-perfil">
+                    <h5 class="info">Apellido Materno:</h5>
+                    <h5 class="data">Portillo</h5>
+                </div>
+                <div class="ver-perfil">
+                    <h5 class="info">Última Conexión:</h5>
+                    <h5 class="data">Ayer a las 14:45 hrs</h5>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="col-sm-6">
-          <div class="card">
-            <img src="../assets/iconos-landing/icon-test.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">VER MIS CUESTIONARIOS</h5>
-              <a href="#" v-on:click='this.$router.push({name: "StudentsDashboardGruposCuestionarios"});' class="btn btn-primary">Vamos</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
     </section>
   </div>
   
@@ -273,16 +267,23 @@ export default {
 {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 900;
+  margin-top: 50px;
 }
 
 /* TITLE SECTION */
 .text-header-2
 {
   font-family: 'Nunito Sans', sans-serif;
-    margin-bottom: 35px;
+  margin-bottom: 35px;
 }
 
 /*CARD SECTIONS*/
+.card
+{
+    background: #3E9058;
+    border-radius: 20px;
+    margin-top: 15px;
+}
 
 .card-section
 {
@@ -300,6 +301,27 @@ export default {
 .card-section .card .card-body
 {
   text-align: center;
+}
+
+.ver-perfil
+{
+    display: flex;   
+}
+
+.ver-perfil .info
+{
+    margin-right: 20px;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.ver-perfil .data
+{
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-weight: 600;
+    font-size: 30px;
+    color: azure;
 }
 
 .card-section .card .card-body .card-title
@@ -356,12 +378,6 @@ export default {
     fill: #127B37;
 }
 
-.text-header-1
-{
-  text-align: center;
-  margin-top: 50px;
-}
-
 .text-header-2
 {
   text-align: center;
@@ -415,6 +431,20 @@ export default {
     background: #106043;
     border-radius: 15px;
   }
+
+  .ver-perfil
+  {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .ver-perfil .info
+  {
+        margin-right: 0px
+  }
+
+
 }
 
 </style>

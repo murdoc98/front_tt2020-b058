@@ -13,6 +13,11 @@ import TeachersDashboard from "@/views/TeachersDashboard.vue"; // Dashboard Prof
 
 import StudentLogin from '@/views/StudentLogin';  // Login Estudiantes
 import StudentsDashboard from "@/views/StudentsDashboard.vue"; // Dashboard Estudiantes
+import StudentsDashboardVerPerfil from "@/views/StudentsDashboard-VerPerfil.vue"; //Ver Perfil Estudiantes
+import StudentsDashboardGrupos from "@/views/StudentsDashboard-Grupos.vue"; // Ver Grupos
+import StudentsDashboardGruposCuestionarios from "@/views/StudentsDashboard-Grupos-Cuestionarios.vue"; //Ver Grupos post cuestionarios
+import StudentsDashboardCuestionarios from "@/views/StudentsDashboard-Cuestionarios.vue"; //Ver Grupos post cuestionarios
+
 
 
 const routes = [
@@ -67,6 +72,27 @@ const routes = [
       }
     }
   },
+  {
+    path: "/student/ver-perfil",
+    name: 'StudentDashboardVerPerfil',
+    component: StudentsDashboardVerPerfil
+  },
+  {
+    path: "/student/grupos-info",
+    name: 'StudentDashboardGrupos',
+    component: StudentsDashboardGrupos
+  },
+  {
+    path: "/student/grupos-cuestionarios",
+    name: 'StudentsDashboardGruposCuestionarios',
+    component: StudentsDashboardGruposCuestionarios
+  },
+  {
+    path: "/student/cuestionarios",
+    name: 'StudentsDashboardCuestionarios',
+    component: StudentsDashboardCuestionarios
+    
+  }
 ];
 
 const router = createRouter({
