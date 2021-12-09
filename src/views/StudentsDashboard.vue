@@ -1,7 +1,8 @@
 <template>
-
+  
   <div class="student-dashboard">
-
+    
+    
     <!-- NavBar -->
     <section>
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -28,11 +29,16 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
+            
             <a class="nav-item nav-link active" href="#"
               >Grupos <span class="sr-only">(current)</span></a
             >
             <a class="nav-item nav-link" href="#">Cuestionarios</a>
-            <div class="dropdown text-end">
+
+            <hr class="divider-menu mobile" color="black" />
+
+            <!-- USER MENU -DESKTOṔ -->
+            <div class="dropdown desktop text-end">
             <a
               href="#"
               class="d-block link-dark text-decoration-none dropdown-toggle"
@@ -48,19 +54,31 @@
                 class="rounded-circle"
               />
             </a>
-            <ul
-              class="dropdown-menu text-small"
-              aria-labelledby="dropdownUser1"
-            >
+            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
               <li><a class="dropdown-item" href="#">Profile</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#" v-on:click='logout'>Cerrar sesión</a></li>
             </ul>
+
           </div>
+
+          <!-- USER MENU - MOBILE -->
+          <div class="dropdown mobile text-end">
+              <img
+                src="../assets/logoElements/iconEvaIO.png"
+                width="40"
+                height="40"
+                class="rounded-circle"
+              />
+              <a class="nav-item nav-link" href="#">Cuestionarios</a>
+              <a class="nav-item nav-link" href="#">Cuestionarios</a>
           </div>
+
+        </div>
 
           
         </div>
+
       </nav>
     </section>
 
@@ -71,32 +89,32 @@
         <Groups v-if="status === 'Groups'"/>
       </div> -->
 
-      <div class="row">
-        <div class="col-6 col-md-4"></div>
-        <div class="col-6 col-md-4" style="text-align:center"> Bienvenido Joven Promesa</div>
-        <div class="col-6 col-md-4"></div>
+      <div class="text-header-1">
+        <h1>Bienvenido Joven</h1>
+      </div>
+
+      <div class="text-header-2">
+        <h1>Promesa</h1>
       </div>
 
       <div class="card-section row">
 
         <div class="col-sm-6">
           <div class="card">
-            <img src="../assets/logoElements/iconEvaIO.png" class="card-img-top" alt="...">
+            <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h5 class="card-title">VER MIS GRUPOS</h5>
+              <a href="#" class="btn btn-primary">Vamos</a>
             </div>
           </div>
         </div>
 
         <div class="col-sm-6">
           <div class="card">
-            <img src="../assets/logoElements/iconEvaIO.png" class="card-img-top" alt="...">
+            <img src="../assets/iconos-landing/icon-test.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h5 class="card-title">VER MIS CUESTIONARIOS</h5>
+              <a href="#" class="btn btn-primary">Vamos</a>
             </div>
           </div>
         </div>
@@ -104,8 +122,28 @@
       </div>
 
     </section>
-
   </div>
+  
+  <footer>
+      <div class="custom-shape-divider-bottom-1639003445">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgb(18, 123, 55);">
+    © 2020 Copyright:
+    <a class="text-dark" href="">Eva.IO</a>
+    </div>
+
+    
+  </footer>
+
+ 
+
+ 
 
 </template>
 
@@ -144,14 +182,16 @@ export default {
 
 <style lang="scss" scoped>
 
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;800&family=M+PLUS+Rounded+1c:wght@500;700;900&display=swap');
+
 .icon_EvaIO {
   width: 65px;
 }
 
 .student-dashboard
 {
+  min-height: 100vh;
   background: #ABD7C7;
-  height: 100%;
 }
 
 .navbar
@@ -166,12 +206,17 @@ export default {
   background: #106043;
   border-radius: 40px;
   font-weight: 600;
+  padding-left: 15px;
+  padding-right: 19px;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link.active
 {
   color: white;
   font-weight: 600;
+  padding-left: 15px;
+  padding-right: 19px;
+
 }
 .navbar-expand-lg .navbar-collapse {
   justify-content: flex-end;
@@ -194,12 +239,31 @@ export default {
 {
   margin-top: 15px;
   align-items: center;
+  background: #127B37;;
 }
 
 .card-section .card .card-body
 {
   text-align: center;
 }
+
+
+.card-section .card .card-body .card-title
+{
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  color:white;
+  font-weight: 600;
+}
+
+.card-section .card .card-body .btn
+{
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  color:white;
+  background: #106043;
+  font-weight: 600;
+}
+
+
 
 .card-section .card img
 {
@@ -208,5 +272,86 @@ export default {
   margin-top: 10px
 }
 
+
+/* SHAPE DIVIDER */
+.custom-shape-divider-bottom-1639003445 {
+    position: inherit;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    background: #ABD7C7;
+
+}
+
+.custom-shape-divider-bottom-1639003445 svg {
+    position: relative;
+    display: block;
+    width: calc(140% + 1.3px);
+    height: 100px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1639003445 .shape-fill {
+    fill: #127B37;
+}
+
+.text-header-1
+{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.text-header-2
+{
+  text-align: center;
+}
+
+
+
+@media (min-width: 991px)
+{
+  .mobile{
+    display: none;
+  }
+}
+
+@media (max-width: 991px)
+{
+  .navbar-nav {
+    align-items: center;
+  }
+
+  .navbar-expand-lg .navbar-nav .nav-link
+  {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .desktop
+  {
+    display: none;
+  }
+
+  .divider-menu
+  {
+    height: 2px;
+    width: 300px;
+    color: rgb(102, 76, 76);
+    opacity: 1;
+  }
+
+  .text-end
+  {
+    text-align: center !important;
+  }
+
+  .text-end img
+  {
+    margin-right: 10px;
+  }
+}
 
 </style>

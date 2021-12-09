@@ -162,10 +162,6 @@
     </div>
   </section>
 
-  
-  
-  <!-- Footer -->
-
   <section>
   <!-- Footer -->
   <footer class="text-center text-white" style="background-color: #0a4275;">
