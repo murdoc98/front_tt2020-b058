@@ -7,7 +7,7 @@
     <section>
       <nav class="navbar navbar-expand-lg navbar-light">
         
-        <a class="navbar-brand" href="/student/dashboard" v-on:click='this.$router.push({name: "StudentsDashboardGrupos"});'>
+        <a class="navbar-brand" href="/teachers/dashboard" v-on:click='this.$router.push({name: "StudentsDashboardGrupos"});'>
           <img
             class="icon_EvaIO"
             src="../assets/logoElements/iconEvaIO.png"
@@ -30,11 +30,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             
-            <a class="nav-item nav-link" href="#" v-on:click='this.$router.push({name: "StudentDashboardGrupos"});'
-              >Grupos</a
+            <a class="nav-item nav-link" href="#" v-on:click='this.$router.push({name: "TeacherDashboardGrupos"});'>Grupos</a
             >
-            <a class="nav-item nav-link" href="#" v-on:click='this.$router.push({name: "StudentsDashboardGruposCuestionarios"});'>Cuestionarios</a>
-
+            
             <hr class="divider-menu mobile" color="black" />
 
             <!-- USER MENU -DESKTOṔ -->
@@ -58,7 +56,7 @@
               
               <li class="item-menu-user">
       
-                <a class="dropdown-item" href="#" v-on:click='this.$router.push({name: "StudentDashboardVerPerfil"});'>
+                <a class="dropdown-item" href="#" v-on:click='this.$router.push({name: "TeachersDashboardVerPerfil"});'>
                   <i class="bx bx-user-circle"></i>
                   Ver Perfil
                 </a>
@@ -74,7 +72,6 @@
             </ul>
 
           </div>
-
         </div>
 
           
@@ -109,6 +106,10 @@
                     <h5 class="data">Portillo</h5>
                 </div>
                 <div class="ver-perfil">
+                    <h5 class="info">Correo:</h5>
+                    <h5 class="data">correa@correo.com</h5>
+                </div>
+                <div class="ver-perfil">
                     <h5 class="info">Última Conexión:</h5>
                     <h5 class="data">Ayer a las 14:45 hrs</h5>
                 </div>
@@ -118,7 +119,7 @@
   </div>
   
   <footer>
-      <div class="custom-shape-divider-bottom-1639003445">
+    <div class="custom-shape-divider-bottom-1639115775">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
             <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
@@ -126,7 +127,7 @@
         </svg>
     </div>
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgb(18, 123, 55);">
+    <div class="text-center p-3" style="background: #0E72B9;">
     © 2020 Copyright:
     <a class="text-dark" href="">Eva.IO</a>
     </div>
@@ -184,19 +185,19 @@ export default {
 .student-dashboard
 {
   min-height: 100vh;
-  background: #ABD7C7;
+  background: #7EB4E2;
 }
 
 .navbar
 {
-  background: #21B091;
+  background: #307CC0;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link
 {
   color: white;
   margin-right: 15px;
-  background: #106043;
+  background: #7EB4E2;
   border-radius: 40px;
   font-weight: 600;
   padding-left: 15px;
@@ -209,7 +210,7 @@ export default {
   font-weight: 600;
   padding-left: 15px;
   padding-right: 19px;
-  background: #0e4833;
+  background: #7EB4E2;
 
 }
 .navbar-expand-lg .navbar-collapse {
@@ -226,7 +227,7 @@ export default {
   margin-top: 10px;
   margin-left: -12px;
   border-radius: 20px;
-  background: #21B091;
+  background: #7EB4E2;
 }
 
 .dropdown-item
@@ -258,7 +259,7 @@ export default {
 .item-menu-user
 {
   margin: 5px;
-  background: #106043;
+  background: #3778b1;
   border-radius: 15px;
 }
 
@@ -280,7 +281,7 @@ export default {
 /*CARD SECTIONS*/
 .card
 {
-    background: #3E9058;
+    background: #1266b0;
     border-radius: 20px;
     margin-top: 15px;
 }
@@ -295,7 +296,7 @@ export default {
 {
   margin-top: 15px;
   align-items: center;
-  background: #3E9058;
+  background: #7EB4E2;
 }
 
 .card-section .card .card-body
@@ -314,6 +315,7 @@ export default {
     font-family: 'Baloo Bhaijaan 2', cursive;
     font-weight: 600;
     font-size: 30px;
+    color: #1D3F78;
 }
 
 .ver-perfil .data
@@ -354,29 +356,27 @@ export default {
 
 
 /* SHAPE DIVIDER */
-.custom-shape-divider-bottom-1639003445 {
-    position: inherit;
-    top: 0;
+.custom-shape-divider-bottom-1639115775 {
+    position: absolute;
+    bottom: 0;
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
-    background: #ABD7C7;
-
 }
 
-.custom-shape-divider-bottom-1639003445 svg {
+.custom-shape-divider-bottom-1639115775 svg {
     position: relative;
     display: block;
-    width: calc(140% + 1.3px);
-    height: 100px;
-    transform: rotateY(180deg);
+    width: calc(111% + 1.3px);
+    height: 115px;
 }
 
-.custom-shape-divider-bottom-1639003445 .shape-fill {
-    fill: #127B37;
+.custom-shape-divider-bottom-1639115775 .shape-fill {
+    fill: #0E72B9;
 }
+
 
 .text-header-2
 {
