@@ -29,5 +29,12 @@ export default {
   logout() {
     Cookies.remove('userLogged');
     Cookies.remove('userRole');
+  },
+  getStudentProfile() {
+    return axios.get(`${api}/students/auth/profile`, {
+      headers: {
+        token: this.getUserToken()
+      }
+    });
   }
 };

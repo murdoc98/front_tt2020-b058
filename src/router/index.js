@@ -78,8 +78,8 @@ const routes = [
     name: "StudentsDashboard",
     component: StudentsDashboard,
     beforeEnter(to, from, next) {
-      if(!auth.getUserToken()) {
-        next("/");
+      if(!auth.getUserToken() || auth.getUserRole() != 'student') {
+        next('/');
       }
       else {
         next();
@@ -89,7 +89,15 @@ const routes = [
   {
     path: "/student/ver-perfil",
     name: 'StudentDashboardVerPerfil',
-    component: StudentsDashboardVerPerfil
+    component: StudentsDashboardVerPerfil,
+    beforeEnter(to, from, next) {
+      if(!auth.getUserToken() || auth.getUserRole() != 'student') {
+        next('/');
+      }
+      else {
+        next();
+      }
+    }
   },
   {
     path: "/student/grupos-info",
