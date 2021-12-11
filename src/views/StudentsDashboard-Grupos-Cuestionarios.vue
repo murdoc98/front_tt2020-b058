@@ -120,35 +120,15 @@
 
       </div> -->
 
-      
+        
         
         <div class="card-section row">
 
-          <div class="col-sm">
+          <div class="col-sm" v-for="(group, index) in groups" :key="index">
             <div class="card">
               <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">GRUPO A-1</h5>
-                <a href="#" type="button" class="btn btn-primary" v-on:click='this.$router.push({name: "StudentsDashboardCuestionarios"});'>Ver Cuestionario</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm">
-            <div class="card">
-              <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">GRUPO B-1</h5>
-                <a href="#" type="button" class="btn btn-primary" v-on:click='this.$router.push({name: "StudentsDashboardCuestionarios"});'>Ver Cuestionario</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm">
-            <div class="card">
-              <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">GRUPO C-1</h5>
+                <h5 class="card-title">{{ group.name }}</h5>
                 <a href="#" type="button" class="btn btn-primary" v-on:click='this.$router.push({name: "StudentsDashboardCuestionarios"});'>Ver cuestionario</a>
               </div>
             </div>
@@ -169,9 +149,8 @@
         </svg>
     </div>
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgb(18, 123, 55);">
-    © 2020 Copyright:
-    <a class="text-dark" href="">Eva.IO</a>
+    <div class="text-center p-3" style="background-color: rgb(18, 123, 55); height: 95px;">
+    <img src="../assets/logoElements/Logo-Horizontal-Completo.png" style="height: 60px;" alt="">
     </div>
 
     
@@ -220,6 +199,7 @@
 // import PopupRole from '../components/PopupRole';
 // import Groups from '../components/StudentsGroups';
 import auth from '@/logic/auth';
+import studentGroups from '@/logic/studentsGroups';
 
 export default {
   name: "popupRole",
@@ -230,7 +210,14 @@ export default {
   },
   data: () => ({
     status: 'Groups',
+    groups: [],
+    modalName: 'test',
+    modalId: 'test'
   }),
+  async beforeMount() {
+    const response = await studentGroups.getGroups();
+    this.groups = response.data;
+  },
   methods: {
     async logout() {
       try {
@@ -244,6 +231,10 @@ export default {
     },
     recovery() {
       console.log(this.email2recover)
+    },
+    changeState(name, id) {
+      this.modalName = name;
+      this.modalId = id;
     }
   }
 };

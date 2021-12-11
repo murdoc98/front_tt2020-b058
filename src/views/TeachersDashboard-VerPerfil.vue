@@ -127,9 +127,8 @@
         </svg>
     </div>
     <!-- Copyright -->
-    <div class="text-center p-3" style="background: #0E72B9;">
-    © 2020 Copyright:
-    <a class="text-dark" href="">Eva.IO</a>
+    <div class="text-center p-3" style="background-color: rgb(15 114 185); height: 95px;">
+    <img src="../assets/logoElements/Logo-Horizontal-Completo.png" style="height: 60px;" alt="">
     </div>
 
     
