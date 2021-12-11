@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             
-            <a class="nav-item nav-link" href="#" v-on:click='this.$router.push({name: "TeacherDashboardGrupos"});'>Grupos</a
+            <a class="nav-item nav-link" href="/teachers/grupos" v-on:click='this.$router.push({name: "TeacherDashboardGrupos"});'>Grupos</a
             >
             
             <hr class="divider-menu mobile" color="black" />
@@ -95,23 +95,23 @@
             <div class="card-body">
                 <div class="ver-perfil">
                     <h5 class="info">Nombre:</h5>
-                    <h5 class="data">Arturo Mohamed</h5>
+                    <h5 class="data">{{ name }}</h5>
                 </div>
                 <div class="ver-perfil">
                     <h5 class="info">Apellidos Paterno:</h5>
-                    <h5 class="data">Jácome</h5>
+                    <h5 class="data">{{ surname }}</h5>
                 </div>
                 <div class="ver-perfil">
                     <h5 class="info">Apellido Materno:</h5>
-                    <h5 class="data">Portillo</h5>
+                    <h5 class="data">{{ secondSurname }}</h5>
                 </div>
                 <div class="ver-perfil">
                     <h5 class="info">Correo:</h5>
-                    <h5 class="data">correa@correo.com</h5>
+                    <h5 class="data">{{ email }}</h5>
                 </div>
                 <div class="ver-perfil">
                     <h5 class="info">Última Conexión:</h5>
-                    <h5 class="data">Ayer a las 14:45 hrs</h5>
+                    <h5 class="data">{{ iat }}</h5>
                 </div>
             </div>
         </div>
@@ -155,7 +155,20 @@ export default {
   },
   data: () => ({
     status: 'Groups',
+    name: 'John',
+    surname: 'Doe',
+    secondSurname: 'Random',
+    email: 'john@dow.com',
+    iat: 3287697
   }),
+  async beforeMount() {
+    const { data } = await auth.getTeacherProfile();
+    this.name = data.name;
+    this.surname = data.surname;
+    this.secondSurname = data.secondSurname;
+    this.email = data.email;
+    this.iat = data.iat;
+  },
   methods: {
     async logout() {
       try {

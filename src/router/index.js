@@ -23,16 +23,6 @@ import StudentsDashboardCuestionarios from "@/views/StudentsDashboard-Cuestionar
 
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "Login",
-  //   component: Login,
-  // },
-  // {
-  //  path: "/dashboard",
-  //  name: "Dashboard",
-  //  component: Dashboard,
-  // },
   {
     path: "/",
     name: "LandingPage",
@@ -44,14 +34,23 @@ const routes = [
   },{
     path: "/teachers/login",
     name: 'TeachersLogin',
-    component: TeachersLogin
-  },{
+    component: TeachersLogin,
+    beforeEnter(to, from, next) {
+      if(auth.getUserToken() || auth.getUserRole() == 'teacher') {
+        next('/teachers/dashboard');
+      }
+      else {
+        next();
+      }
+    }
+  },
+  {
     path: "/teachers/dashboard",
     name: "TeachersDashboard",
     component: TeachersDashboard,
     beforeEnter(to, from, next) {
-      if(!auth.getUserToken()) {
-        next("/");
+      if(!auth.getUserToken() || auth.getUserRole() != 'teacher') {
+        next('/');
       }
       else {
         next();
@@ -61,17 +60,41 @@ const routes = [
   {
     path: "/teachers/ver-perfil",
     name: 'TeachersDashboardVerPerfil',
-    component: TeachersDashboardVerPerfil
+    component: TeachersDashboardVerPerfil,
+    beforeEnter(to, from, next) {
+      if(!auth.getUserToken() || auth.getUserRole() != 'teacher') {
+        next('/');
+      }
+      else {
+        next();
+      }
+    }
   },
   {
     path: "/teachers/grupos",
     name: 'TeachersDashboardGrupos',
-    component: TeachersDashboardGrupos
+    component: TeachersDashboardGrupos,
+    beforeEnter(to, from, next) {
+      if(!auth.getUserToken() || auth.getUserRole() != 'teacher') {
+        next('/');
+      }
+      else {
+        next();
+      }
+    }
   },
   {
     path: "/student/login",
     name: 'StudentLogin',
-    component: StudentLogin
+    component: StudentLogin,
+    beforeEnter(to, from, next) {
+      if(auth.getUserToken() || auth.getUserRole() == 'student') {
+        next('/student/dashboard');
+      }
+      else {
+        next();
+      }
+    }
   },
   {
     path: "/student/dashboard",
@@ -102,17 +125,41 @@ const routes = [
   {
     path: "/student/grupos-info",
     name: 'StudentDashboardGrupos',
-    component: StudentsDashboardGrupos
+    component: StudentsDashboardGrupos,
+    beforeEnter(to, from, next) {
+      if(!auth.getUserToken() || auth.getUserRole() != 'student') {
+        next('/');
+      }
+      else {
+        next();
+      }
+    }
   },
   {
     path: "/student/grupos-cuestionarios",
     name: 'StudentsDashboardGruposCuestionarios',
-    component: StudentsDashboardGruposCuestionarios
+    component: StudentsDashboardGruposCuestionarios,
+    beforeEnter(to, from, next) {
+      if(!auth.getUserToken() || auth.getUserRole() != 'student') {
+        next('/');
+      }
+      else {
+        next();
+      }
+    }
   },
   {
     path: "/student/cuestionarios",
     name: 'StudentsDashboardCuestionarios',
-    component: StudentsDashboardCuestionarios
+    component: StudentsDashboardCuestionarios,
+    beforeEnter(to, from, next) {
+      if(!auth.getUserToken() || auth.getUserRole() != 'student') {
+        next('/');
+      }
+      else {
+        next();
+      }
+    }
   }
   
 ];

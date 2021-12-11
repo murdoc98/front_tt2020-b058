@@ -165,9 +165,12 @@ export default {
     iat: 3287697
   }),
   async beforeMount() {
-    const { data } = await 
-    console.log(await auth.getStudentProfile());
-    console.log('Antes de ser mostrado uwu');
+    const { data } = await auth.getStudentProfile();
+    this.name = data.name;
+    this.surname = data.surname;
+    this.secondSurname = data.secondSurname;
+    this.email = data.email;
+    this.iat = data.iat;
   },
   methods: {
     async logout() {

@@ -1,6 +1,6 @@
 <template>
-  
-  <div class="student-dashboard">
+  <div>
+    <div class="student-dashboard">
     
     
     <!-- NavBar -->
@@ -122,38 +122,16 @@
 
       
         
-        <div class="card-section row">
-
-          <div class="col-sm">
+        <div class="card-section row" >
+          <div class="col-sm" v-for="(group, index) in groups" :key="index">
             <div class="card">
               <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">GRUPO A-1</h5>
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Información</a>
+                <h5 class="card-title">{{ group.name }}</h5>
+                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="changeState(group.name, group.id)">Información</a>
               </div>
             </div>
           </div>
-
-          <div class="col-sm">
-            <div class="card">
-              <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">GRUPO B-1</h5>
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Información</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm">
-            <div class="card">
-              <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">GRUPO C-1</h5>
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Información</a>
-              </div>
-            </div>
-          </div>
-
         </div>
       
 
@@ -194,11 +172,11 @@
         <div class="modal-body">
           <div class="modal-data" >
             <h5 class="info">Grupo:</h5>
-            <h5 class="data">C-1</h5>
+            <h5 class="data">{{ modalName }}</h5>
           </div>
           <div class="modal-data">
             <h5 class="info">ID:</h5>
-            <h5 class="data">2020B058</h5>
+            <h5 class="data">{{ modalId }}</h5>
           </div>
         </div>
 
@@ -210,7 +188,7 @@
     </div>
   </div>
 
- 
+ </div>
 
  
 
@@ -220,6 +198,7 @@
 // import PopupRole from '../components/PopupRole';
 // import Groups from '../components/StudentsGroups';
 import auth from '@/logic/auth';
+import studentGroups from '@/logic/studentsGroups';
 
 export default {
   name: "popupRole",
@@ -230,7 +209,14 @@ export default {
   },
   data: () => ({
     status: 'Groups',
+    groups: [],
+    modalName: 'test',
+    modalId: 'test'
   }),
+  async beforeMount() {
+    const response = await studentGroups.getGroups();
+    this.groups = response.data;
+  },
   methods: {
     async logout() {
       try {
@@ -244,6 +230,10 @@ export default {
     },
     recovery() {
       console.log(this.email2recover)
+    },
+    changeState(name, id) {
+      this.modalName = name;
+      this.modalId = id;
     }
   }
 };
