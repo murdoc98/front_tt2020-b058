@@ -370,13 +370,14 @@ export default {
 
 /* SHAPE DIVIDER */
 .custom-shape-divider-bottom-1639115775 {
-    position: absolute;
+    position: inherit;
     bottom: 0;
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
+    background: #7eb4e1;
 }
 
 .custom-shape-divider-bottom-1639115775 svg {
@@ -455,6 +456,12 @@ export default {
   .ver-perfil .info
   {
         margin-right: 0px
+  }
+
+  .data
+  {
+    width: 255px;
+    text-align: center;
   }
 
 

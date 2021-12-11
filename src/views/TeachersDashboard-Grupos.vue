@@ -90,6 +90,7 @@
 
         <div class="container text-header-1">
           <h1>Información de grupos</h1>
+          <a href="#" class="btn btn-add-group btn-lg active" data-toggle="modal" data-target="#modalLoginForm" role="button"><i class="bx bxs-group"></i></a>
         </div>
 
         <!-- <div class="text-header-2">
@@ -158,7 +159,7 @@
         <div class="modal-content">
           <div class="modal-header">
             
-            <h5 class="modal-title info" id="exampleModalLongTitle">Información</h5>
+            <h5 class="modal-title info" id="exampleModalLongTitle">Información</h5> 
             
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -198,14 +199,14 @@
       </div>
     </div>
 
-    <!-- Modal Errol-->
+    <!-- Modal Alumnos-->
     <div class="modal fade" id="modalAlumnos" tabindex="-1" role="dialog" aria-labelledby="modalAlumnos" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
 
           <div class="modal-header">
             
-            <h5 class="modal-title info" id="exampleModalLongTitle">Alumnos</h5>
+            <h5 class="modal-title info" id="exampleModalLongTitle">Integrantes del grupo</h5>
             
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -214,30 +215,53 @@
           </div>
 
           <div class="modal-body">
+
             <div class="modal-data">
-              <h5 class="info">Alumno</h5>
+              <h5 class="info">Inscritos</h5>
             </div>
+
             <div class="modal-data"  v-for="(enroll, index) in groupEnrolled" :key="index">
-              <h5 class="data">{{ enroll.name }} {{ enroll.surname }} {{ enroll.secondSurname }}</h5>
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                  </div>
-                </div>
-                <input type="text" class="form-control">
-              </div>
-
+              <h5 class="data">{{ enroll.name }} {{ enroll.surname }} {{ enroll.secondSurname }}</h5>   
+              <a href="#" class="btn btn-unadd btn-primary btn-lg active" role="button" aria-pressed="true"><i class="bx bxs-user-minus"></i></a>           
             </div>
 
+            <hr>
+            <div class="modal-data">
+              <h5 class="info">Solicitudes</h5>
+            </div>
             <div class="modal-data"  v-for="(unenroll, index) in groupUnEnrolled" :key="index">
               <h5 class="data">{{ unenroll.name }} {{ unenroll.surname }} {{ unenroll.secondSurname }}</h5>
+              
+              <a href="#" class="btn btn-add btn-secondary btn-lg active" role="button" aria-pressed="true"><i class="bx bxs-user-plus"></i></a>
             </div>
           </div>
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal addGroup -->
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Agregar Nuevo Grupo</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="bx bxs-group"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Nombre del Grupo" id="usr">
+              </div>
+
+          </div>
+
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-default" data-dismiss="modal">Crear Grupo</button>
           </div>
 
         </div>
@@ -311,6 +335,11 @@ export default {
   width: 65px;
 }
 
+.form-control
+{
+  background: #7EB4E7;
+}
+
 .student-dashboard
 {
   min-height: 100vh;
@@ -382,7 +411,7 @@ export default {
 .bx
 {
   margin-bottom: 2px;
-  margin-right: 5px;
+  margin-right: 0px;
 }
 
 .item-menu-user
@@ -392,6 +421,18 @@ export default {
   border-radius: 15px;
 }
 
+.btn-add-group
+{
+  background: rgb(0, 4, 255);
+  color: rgb(0, 195, 255);
+  border-radius: 25px;
+}
+
+.btn-add-group:hover
+{
+  background: rgb(115, 117, 248);
+}
+
 /* TITLE SECTION */
 .text-header-1
 {
@@ -399,7 +440,16 @@ export default {
   font-weight: 900;
   margin-top: 50px;
   margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.text-header-1 .btn
+{
+  background: #2b52b5;
+}
+
 
 /* TITLE SECTION */
 .text-header-2
@@ -441,6 +491,7 @@ export default {
   color:white;
   background: #1C3E92;
   font-weight: 600;
+  margin-top: 10px;
 }
 
 .card-section .card .card-body .btn:hover
@@ -474,6 +525,7 @@ export default {
     display: block;
     width: calc(111% + 1.3px);
     height: 115px;
+    background: #7eb4e1;
 }
 
 .custom-shape-divider-bottom-1639115775 .shape-fill {
@@ -502,7 +554,10 @@ export default {
 
 .modal-data{
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .modal-data .info
@@ -520,6 +575,7 @@ export default {
   font-weight: 600;
   font-size: 30px;
   color: azure;
+  padding-right: 50px;
 }
 
 .modal-header
@@ -543,6 +599,15 @@ export default {
   background: #052f97;
 }
 
+.btn-unadd
+{
+  border-radius: 25px;
+}
+
+.btn-add
+{
+  border-radius: 25px;
+}
 
 
 @media (min-width: 991px)
@@ -591,6 +656,23 @@ export default {
     background: #106043;
     border-radius: 15px;
   }
+
+  .modal-data
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  .modal-data .data
+  {
+    padding-right: 0px;
+    text-align: center;
+  }
+
+
 }
 
 </style>
