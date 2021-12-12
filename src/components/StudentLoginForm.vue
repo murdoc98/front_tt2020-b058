@@ -14,13 +14,13 @@
     <div class="forms">
       <div class="form-content">
         <div class="login-form">
-          <div class="title">Iniciar sesión</div>
+          <div class="title">Iniciar sesion</div>
           <form action @submit.prevent="login">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="bx bx-envelope"></i>
                 <input
-                  v-model="email"
+                  v-model="loginEmail"
                   type="email"
                   placeholder="Correo electronico"
                   required
@@ -29,7 +29,7 @@
               <div class="input-box">
                 <i class="bx bx-key"></i>
                 <input
-                  v-model="password"
+                  v-model="loginPassword"
                   type="password"
                   placeholder="Contraseña"
                   required
@@ -49,27 +49,37 @@
           </form>
         </div>
         <div class="forgot-form">
-          <div class="title">Crear cuenta</div>
-          <form action @submit.prevent="recovery">
+          <div class="title">Recuperar Contraseña</div>
+          <form action>
             <div class="input-boxes">
               
               <!-- Nombre-->
               <div class="input-box">
                 <i class="bx bx-user-circle"></i>
                 <input
-                  v-model="email"
-                  type="email"
+                  v-model="signinName"
+                  type="text"
                   placeholder="Nombre(s)"
                   required
                 />
               </div>
-              <!-- Apellidos -->
+              <!-- Apellidos P -->
               <div class="input-box">
                 <i class="bx bx-user-circle"></i>
                 <input
-                  v-model="email"
-                  type="email"
-                  placeholder="Apellidos"
+                  v-model="signinSurname"
+                  type="text"
+                  placeholder="Apellid Materno"
+                  required
+                />
+              </div>
+              <!-- Apellido M -->
+              <div class="input-box">
+                <i class="bx bx-user-circle"></i>
+                <input
+                  v-model="signinSecondSurname"
+                  type="text"
+                  placeholder="Apellido Paterno"
                   required
                 />
               </div>
@@ -77,8 +87,8 @@
               <div class="input-box">
                 <i class="bx bx-envelope"></i>
                 <input
-                  v-model="email2recover"
-                  type="text"
+                  v-model="signinEmail"
+                  type="email"
                   placeholder="Correo electronico"
                   required
                 />
@@ -90,7 +100,7 @@
               <div class="input-box">
                 <i class="bx bx-key"></i>
                 <input
-                  v-model="password"
+                  v-model="signinPassword"
                   type="password"
                   placeholder="Contraseña"
                   required
@@ -99,7 +109,7 @@
               
 
               <div class="button input-box">
-                <input type="submit" value="Registrarse" />
+                <input type="submit" value="Registrarse" @click="signin"/>
               </div>
               <div class="text forgot-text">
                 ¿Ya cuentas con tus credenciales?
@@ -126,16 +136,16 @@
           </div>
           <div class="modal-body">
 
-            <form action="/action_page.php">
+            <form>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Correo Electronico" id="usr" name="Correo Electronico">
+                <input type="email" class="form-control" placeholder="Correo Electronico" id="usr" name="email" v-model="email2recover">
               </div>
               
               <div class="btn-enviar">
-                <input class="btn btn-enviar" data-dismiss="modal" type="button" value="Enviar">
+                <input class="btn btn-enviar" type="submit" value="Enviar" @click="recovery">
               </div>
               
             </form>
@@ -150,15 +160,20 @@
 import auth from '@/logic/auth';
 export default {
   data: () => ({
-    email: "",
-    password: "",
+    loginEmail: "",
+    loginPassword: "",
+    signinName: "",
+    signinSurname: "",
+    signinSecondSurname: "",
+    signinEmail: "",
+    signinPassword: "",
     email2recover: "",
-    serverMessage: ""
+    serverMessage: "",
   }),
   methods: {
     async login() {
       try {
-        const response = await auth.studentsLogin(this.email, this.password);
+        const response = await auth.studentsLogin(this.loginEmail, this.loginPassword);
         auth.setUserToken(response.headers.token);
         auth.setUserRole('student');
         this.$router.push({name: 'StudentsDashboard'});
@@ -168,8 +183,27 @@ export default {
         setInterval(() => this.serverMessage = "", 15000);
       }
     },
-    recovery() {
-      console.log(this.email2recover)
+    async recovery() {
+      try {
+        await auth.recoverStudentPassword(this.email2recover);
+      } catch(e) {
+        if(!e.response) this.serverMessage = "Servidor Inhabilitado temporalmente";
+        else if(e.response) this.serverMessage = e.response.data.server;
+        setInterval(() => this.serverMessage = "", 15000);
+      }
+    },
+    async signin() {
+      const data = {
+        name: this.signinName,
+        surname: this.signinSurname,
+        secondSurname: this.signinSecondSurname,
+        email: this.signinEmail,
+        password: this.signinPassword
+      };
+      const response = await auth.signinStudent(data);
+      if(!response.response) this.serverMessage = "Servidor Inhabilitado temporalmente";
+      else if(response.response) this.serverMessage = response.response.data.server;
+      setInterval(() => this.serverMessage = "", 15000);
     }
   }
 };

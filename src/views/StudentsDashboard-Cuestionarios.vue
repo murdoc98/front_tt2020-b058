@@ -120,67 +120,6 @@
 
       </div> -->
 
-      
-        
-        <div class="card-section row">
-
-          <div class="col-sm">
-            <div class="card">
-              <img src="../assets/iconos-landing/icon-test.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">ID: 2020B058TT2</h5>
-                <h5 class="card-title">FECHA: 02-10-2021</h5>
-                <h5 class="card-title">PROGRESO: 50%</h5>
-                <h5 class="card-title">ID: 2020B058TT2</h5>
-                <h5 class="card-title">P.TOTALES: 10</h5>
-                <h5 class="card-title">CALIFICACION: 3</h5>
-                <h5 class="card-title">SL: 3000</h5>
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Q1">Comenzar</a>
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Q2">Continuar</a>
-                <a href="#" type="button" class="btn btn-primary">Terminar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm">
-            <div class="card">
-              <img src="../assets/iconos-landing/icon-test.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">ID: 2020B058TT2</h5>
-                <h5 class="card-title">FECHA: 02-10-2021</h5>
-                <h5 class="card-title">PROGRESO: 50%</h5>
-                <h5 class="card-title">ID: 2020B058TT2</h5>
-                <h5 class="card-title">P.TOTALES: 10</h5>
-                <h5 class="card-title">CALIFICACION: 3</h5>
-                <h5 class="card-title">SL: 3000</h5>
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Q1">Comenzar</a>
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Q2">Continuar</a>
-                <a href="#" type="button" class="btn btn-primary">Terminar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm">
-            <div class="card">
-              <img src="../assets/iconos-landing/icon-test.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">ID: 2020B058TT2</h5>
-                <h5 class="card-title">FECHA: 02-10-2021</h5>
-                <h5 class="card-title">PROGRESO: 50%</h5>
-                <h5 class="card-title">ID: 2020B058TT2</h5>
-                <h5 class="card-title">P.TOTALES: 10</h5>
-                <h5 class="card-title">CALIFICACION: 3</h5>
-                <h5 class="card-title">SL: 3000</h5>
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Q1">Comenzar</a>
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Q2">Continuar</a>
-                <a href="#" type="button" class="btn btn-primary">Terminar</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      
-
     </section>
   </div>
   
@@ -754,6 +693,7 @@
 // import PopupRole from '../components/PopupRole';
 // import Groups from '../components/StudentsGroups';
 import auth from '@/logic/auth';
+//import studentQuizzes from '@logic/studentQuizzes';
 
 export default {
   name: "popupRole",
@@ -776,8 +716,8 @@ export default {
         setInterval(() => this.serverMessage = "", 15000);
       }
     },
-    recovery() {
-      console.log(this.email2recover)
+    async getQuizzes() {
+      //console.log(await studentQuizzes.geQuizzes());
     }
   }
 };

@@ -17,5 +17,19 @@ export default {
         token: auth.getUserToken()
       }
     });
+  },
+  updateStudentAccess(groupId, studentId, status) {
+    return axios.put(
+      `${api}/groups/${groupId}/${studentId}`, 
+      { status },
+      { headers: { token: auth.getUserToken() }} 
+    );
+  },
+  createGroupLogic(name) {
+    return axios.post(
+      `${api}/groups/`, 
+      { name },
+      { headers: { token: auth.getUserToken() }} 
+    );
   }
 }

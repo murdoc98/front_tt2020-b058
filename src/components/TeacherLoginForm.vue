@@ -41,36 +41,16 @@
                 <input type="submit" value="Enviar" />
               </div>
               <div class="text forgot-text">
-                ¿Olvidaste tu contraseña? <label  data-toggle="modal" data-target="#recoveripswdModal">Recuperar</label>
+                ¿Olvidaste tu contraseña? <label for="flip">Recuperar</label>
               </div>
             </div>
           </form>
         </div>
         <div class="forgot-form">
-          <div class="title">Crear cuenta</div>
+          <div class="title">Recuperar Contraseña</div>
           <form action @submit.prevent="recovery">
             <div class="input-boxes">
-              
-              <!-- Nombre-->
-              <div class="input-box">
-                <i class="bx bx-user-circle"></i>
-                <input
-                  v-model="email"
-                  type="email"
-                  placeholder="Nombre(s)"
-                  required
-                />
-              </div>
-              <!-- Apellidos -->
-              <div class="input-box">
-                <i class="bx bx-user-circle"></i>
-                <input
-                  v-model="email"
-                  type="email"
-                  placeholder="Apellidos"
-                  required
-                />
-              </div>
+
               <!-- Correo -->
               <div class="input-box">
                 <i class="bx bx-envelope"></i>
@@ -81,23 +61,9 @@
                   required
                 />
               </div>
-              
-
-              <!-- Contraseña -->
-
-              <div class="input-box">
-                <i class="bx bx-key"></i>
-                <input
-                  v-model="password"
-                  type="password"
-                  placeholder="Contraseña"
-                  required
-                />
-              </div>
-              
 
               <div class="button input-box">
-                <input type="submit" value="Registrarse" />
+                <input type="submit" value="Recuperar"  data-toggle="modal" data-target="#recoveripswdModal" @click="recovery"/>
               </div>
               <div class="text forgot-text">
                 ¿Ya cuentas con tus credenciales?
@@ -117,26 +83,14 @@
         <div class="modal-content">
 
           <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Recuperar Contraseña</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Información</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>
           </div>
           <div class="modal-body">
 
-            <form action="/action_page.php">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                </div>
-                <input type="text" class="form-control" placeholder="Correo Electronico" id="usr" name="Correo Electronico">
-              </div>
-              
-              <div class="btn-enviar">
-                <input class="btn btn-enviar" data-dismiss="modal" type="button" value="Enviar">
-              </div>
-              
-            </form>
+            <h4 class="text-center">Contraseña Restaurada, revisa tu correo electrónico</h4>            
 
           </div>
         </div>
@@ -166,8 +120,14 @@ export default {
         setInterval(() => this.serverMessage = "", 15000);
       }
     },
-    recovery() {
-      console.log(this.email2recover)
+    async recovery(){
+      try {
+        await auth.recoverTeacherPassword(this.email2recover);
+      } catch(e) {
+        if(!e.response) this.serverMessage = "Servidor Inhabilitado temporalmente";
+        else if(e.response) this.serverMessage = e.response.data.server;
+        setInterval(() => this.serverMessage = "", 15000);
+      }
     }
   }
 };

@@ -129,12 +129,48 @@
               <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{ group.name }}</h5>
-                <a href="#" type="button" class="btn btn-primary" v-on:click='this.$router.push({name: "StudentsDashboardCuestionarios"});'>Ver cuestionario</a>
+                <a href="#" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" v-on:click="getQuizzes(group.id)">Ver cuestionarios</a>
+                <button type="button" class="btn btn-secondary" v-on:click="createQuiz(group.id)">Crear Cuestionario</button>
               </div>
             </div>
           </div>
 
         </div>
+
+        <div class="collapse" id="collapseExample" style="background-color: #fff0;">
+          <div class="card card-body" style="background-color: #fff0;">
+            
+              <div class="card-section row">
+
+                <div class="col-sm" v-for="(quiz, index) in quizzes" :key="index">
+                  <div class="card">
+                    <img src="../assets/iconos-landing/icon-test.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">ID: {{ quiz.id }}</h5>
+                      <h5 class="card-title">FECHA: {{ quiz.created_at }}</h5>
+                      <h5 class="card-title">PROGRESO: {{ quiz.totalAnswers }}</h5>
+                      <h5 class="card-title">P.TOTALES: 10</h5>
+                      <h5 class="card-title">CALIFICACIÓN SIMPLE: {{ quiz.plainGrade }}</h5>
+                      <h5 class="card-title">CALIFICACIÓN PROCESADA: {{ quiz.processGrade }}</h5>
+                      <h5 class="card-title">ESTATUS: {{ quiz.status }}</h5>
+                      <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Q1" v-on:click="getQuestion(quiz.id)">Continuar</a>
+                      <a href="#" type="button" class="btn btn-primary">Terminar</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+        </div>
+
+        
+
+
+          <!-- Modal -->
+
+
+        
       
 
     </section>
@@ -155,15 +191,13 @@
 
     
   </footer>
-  
 
-  <!-- Modal -->
-  <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="Q1" tabindex="-1" role="dialog" aria-labelledby="Q1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           
-          <h5 class="modal-title info" id="exampleModalLongTitle"></h5>
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 1</h5>
           
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -172,23 +206,532 @@
         </div>
         <div class="modal-body">
           <div class="modal-data" >
-            <h5 class="info">Grupo:</h5>
-            <h5 class="data">C-1</h5>
+            <h5 class="data">Realice la siguiente operación</h5>
           </div>
-          <div class="modal-data">
-            <h5 class="info">ID:</h5>
-            <h5 class="data">2020B058</h5>
-          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
         </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Entendido</button>
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q2">Sigueinte</button>
         </div>
 
       </div>
     </div>
-  </div> -->
+  </div>
 
+  <div class="modal fade" id="Q2" tabindex="-1" role="dialog" aria-labelledby="Q2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 2</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="data">Realice la siguiente operación</h5>
+          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q3">Siguiente</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Q3" tabindex="-1" role="dialog" aria-labelledby="Q3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 3</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="data">Realice la siguiente operación</h5>
+          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q4">Sigueinte</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Q4" tabindex="-1" role="dialog" aria-labelledby="Q4" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta:4</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="data">Realice la siguiente operación</h5>
+          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q5">Sigueinte</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Q5" tabindex="-1" role="dialog" aria-labelledby="Q5" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 5</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="data">Realice la siguiente operación</h5>
+          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q6">Sigueinte</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Q6" tabindex="-1" role="dialog" aria-labelledby="Q6" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 6</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="data">Realice la siguiente operación</h5>
+          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q7">Sigueinte</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Q7" tabindex="-1" role="dialog" aria-labelledby="Q7" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 7</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="data">Realice la siguiente operación</h5>
+          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q8">Sigueinte</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Q8" tabindex="-1" role="dialog" aria-labelledby="Q8" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 8</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="data">Realice la siguiente operación</h5>
+          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q9">Sigueinte</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Q9" tabindex="-1" role="dialog" aria-labelledby="Q9" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 9</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="data">Realice la siguiente operación</h5>
+          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q10">Sigueinte</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Q10" tabindex="-1" role="dialog" aria-labelledby="Q10" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 10</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <div class="modal-data" >
+            <h5 class="data">Realice la siguiente operación</h5>
+          </div>
+          
+            <div class="modal-data">
+                <h5 class="data">5.85 * 8.78</h5>
+            </div>
+
+            <hr style="color: black;"/>
+
+            <div class="data form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    53.32
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    55.28
+                </label>
+            </div>
+            
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    51.36
+                </label>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sigueinte</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
  
 
  
@@ -200,6 +743,7 @@
 // import Groups from '../components/StudentsGroups';
 import auth from '@/logic/auth';
 import studentGroups from '@/logic/studentsGroups';
+import studentQuizzes from '@/logic/studentQuizzes';
 
 export default {
   name: "popupRole",
@@ -212,7 +756,8 @@ export default {
     status: 'Groups',
     groups: [],
     modalName: 'test',
-    modalId: 'test'
+    modalId: 'test',
+    quizzes: []
   }),
   async beforeMount() {
     const response = await studentGroups.getGroups();
@@ -229,12 +774,20 @@ export default {
         setInterval(() => this.serverMessage = "", 15000);
       }
     },
-    recovery() {
-      console.log(this.email2recover)
-    },
     changeState(name, id) {
       this.modalName = name;
       this.modalId = id;
+    },
+    async getQuizzes(groupId) {
+      const response = await studentQuizzes.geQuizzesLogic(groupId);
+      this.quizzes = response.data;
+    },
+    async getQuestion(quizzId) {
+      const response = await studentQuizzes.getQuestionLogic(quizzId);
+      console.log(response.data);
+    },
+    async createQuiz(groupId) {
+      await studentQuizzes.postQuiz(groupId);
     }
   }
 };

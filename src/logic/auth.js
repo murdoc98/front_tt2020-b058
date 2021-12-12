@@ -43,5 +43,18 @@ export default {
         token: this.getUserToken()
       }
     });
+  },
+  recoverStudentPassword(email) {
+    return axios.put(`${api}/students/auth/resetPassword`,
+      { email }
+    );
+  },
+  recoverTeacherPassword(email) {
+    return axios.put(`${api}/teachers/auth/resetPassword`,
+      { email }
+    );
+  },
+  signinStudent(data) {
+    return axios.post(`${api}/students/auth/signin`, data);
   }
 };

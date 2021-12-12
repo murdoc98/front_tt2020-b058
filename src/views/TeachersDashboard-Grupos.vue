@@ -145,7 +145,7 @@
           </svg>
       </div>
       <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgb(15 114 185); height: 95px;">
+      <div class="text-center p-3" style="background-color: rgb(15 114 185);n height: 95px;">
     <img src="../assets/logoElements/Logo-Horizontal-Completo.png" style="height: 60px;" alt="">
       </div>
 
@@ -221,7 +221,7 @@
 
             <div class="modal-data"  v-for="(enroll, index) in groupEnrolled" :key="index">
               <h5 class="data">{{ enroll.name }} {{ enroll.surname }} {{ enroll.secondSurname }}</h5>   
-              <a href="#" class="btn btn-unadd btn-primary btn-lg active" role="button" aria-pressed="true"><i class="bx bxs-user-minus"></i></a>           
+              <a href="#" class="btn btn-unadd btn-primary btn-lg active" role="button" aria-pressed="true" v-on:click="updateStudent(enroll.id, false)"><i class="bx bxs-user-minus"></i></a>           
             </div>
 
             <hr>
@@ -231,7 +231,7 @@
             <div class="modal-data"  v-for="(unenroll, index) in groupUnEnrolled" :key="index">
               <h5 class="data">{{ unenroll.name }} {{ unenroll.surname }} {{ unenroll.secondSurname }}</h5>
               
-              <a href="#" class="btn btn-add btn-secondary btn-lg active" role="button" aria-pressed="true"><i class="bx bxs-user-plus"></i></a>
+              <a href="#" class="btn btn-add btn-secondary btn-lg active" role="button" aria-pressed="true" v-on:click="updateStudent(unenroll.id, true)"><i class="bx bxs-user-plus"></i></a>
             </div>
           </div>
 
@@ -254,13 +254,13 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="bx bxs-group"></i></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Nombre del Grupo" id="usr">
+                <input type="text" class="form-control" placeholder="Nombre del Grupo" id="usr" v-model="newGroup">
               </div>
 
           </div>
 
           <div class="modal-footer d-flex justify-content-center">
-            <button class="btn btn-default" data-dismiss="modal">Crear Grupo</button>
+            <button class="btn btn-default" data-dismiss="modal" v-on:click="createGroup">Crear Grupo</button>
           </div>
 
         </div>
@@ -291,10 +291,10 @@ export default {
     modalId: 'test',
     groupInfo: 'groupInfoTest',
     groupName: 'groupnameTest',
-    groupId: 'IDtest',
     groupEnrolled: [],
     groupUnEnrolled: [],
     groupID: 'Idtest',
+    newGroup: ''
   }),
   async beforeMount() {
     const response = await teachersGroups.getGroups();
@@ -316,11 +316,18 @@ export default {
     },
     async getGroup(groupId) {
       const response = await teachersGroups.getGroup(groupId);
-      this.groupName = response.data.name;
-      this.groupID = response.data.id;
-      this.groupEnrolled = response.data.enrolled;
-      this.groupUnEnrolled = response.data.unenrolled;
-      this.groupInfo = response.data;
+      this.groupName = response.data.name; // Nombre del grupo
+      this.groupID = response.data.id; // Id del grupo
+      this.groupEnrolled = response.data.enrolled; //alumnos registrados
+      this.groupUnEnrolled = response.data.unenrolled; //alumnos  no registrados
+      this.groupInfo = response.data; // Toda la info
+    },
+    async updateStudent(studentId, status) {
+      await teachersGroups.updateStudentAccess(this.groupID, studentId, status);
+    },
+    async createGroup() {
+      await teachersGroups.createGroupLogic(this.newGroup);
+      this.newGroup = '';
     }
   }
 };
