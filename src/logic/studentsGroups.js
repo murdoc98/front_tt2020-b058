@@ -10,5 +10,11 @@ export default {
         token: auth.getUserToken()
       }
     });
+  },
+  putGroupLogic(groupId) {
+    return axios.post(`${api}/groups/${groupId}/enroll`, {}, 
+    { 
+      headers: { token: auth.getUserToken() }
+    });
   }
 }

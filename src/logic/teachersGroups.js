@@ -31,5 +31,5 @@ export default {
       { name },
       { headers: { token: auth.getUserToken() }} 
     );
-  }
+  },
 }

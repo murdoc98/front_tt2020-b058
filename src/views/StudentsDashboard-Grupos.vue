@@ -90,6 +90,7 @@
 
       <div class="container text-header-1">
         <h1>Información de grupos</h1>
+        <a href="#" class="btn btn-add-group btn-lg active" data-toggle="modal" data-target="#modalLoginForm" role="button"><i class="bx bxs-group"></i></a>
       </div>
 
       <!-- <div class="text-header-2">
@@ -186,6 +187,34 @@
     </div>
   </div>
 
+   <!-- Modal addAlumnoGroup -->
+  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Inscribirme a Nuevo Grupo</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="bx bxs-group"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="ID Grupo" id="usr" v-model="groupId">
+              </div>
+
+          </div>
+
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-default" data-dismiss="modal" v-on:click="putGroup">Inscribirse</button>
+          </div>
+
+        </div>
+      </div>
+  </div>
+
  </div>
 
  
@@ -209,7 +238,8 @@ export default {
     status: 'Groups',
     groups: [],
     modalName: 'test',
-    modalId: 'test'
+    modalId: 'test',
+    groupId: '',
   }),
   async beforeMount() {
     const response = await studentGroups.getGroups();
@@ -232,6 +262,14 @@ export default {
     changeState(name, id) {
       this.modalName = name;
       this.modalId = id;
+    },
+    async putGroup() {
+      try { 
+        await studentGroups.putGroupLogic(this.groupId);
+      } catch(err) {
+        console.log(err);
+      }
+      this.groupId = '';
     }
   }
 };
@@ -333,6 +371,10 @@ export default {
   font-weight: 900;
   margin-top: 50px;
   margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
 
 /* TITLE SECTION */
@@ -429,6 +471,13 @@ export default {
   background: #2E824D;
 }
 
+.modal-body
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .modal-title
 {
   font-family: 'Nunito Sans', sans-serif;
@@ -438,7 +487,8 @@ export default {
 
 .modal-data{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal-data .info
@@ -455,6 +505,7 @@ export default {
   font-weight: 600;
   font-size: 30px;
   color: azure;
+  text-align: center;
 }
 
 .modal-header
@@ -472,6 +523,23 @@ export default {
   color: azure;
   font-family: 'Baloo Bhaijaan 2', cursive;
   font-weight: 600;
+}
+
+.btn-lg
+{
+  background: #106043;
+  color: azure;
+  border-radius: 50px;
+}
+
+.btn-lg:hover
+{
+  background: #0b442f;
+}
+
+.btn-lg i
+{
+  margin-right: 0px;
 }
 
 

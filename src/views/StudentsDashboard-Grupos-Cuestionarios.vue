@@ -154,7 +154,6 @@
                       <h5 class="card-title">CALIFICACIÓN PROCESADA: {{ quiz.processGrade }}</h5>
                       <h5 class="card-title">ESTATUS: {{ quiz.status }}</h5>
                       <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Q1" v-on:click="getQuestion(quiz.id)">Continuar</a>
-                      <a href="#" type="button" class="btn btn-primary">Terminar</a>
                     </div>
                   </div>
                 </div>
@@ -205,41 +204,45 @@
 
         </div>
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q2">Sigueinte</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q2" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
@@ -259,41 +262,45 @@
 
         </div>
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q3">Siguiente</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q3" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
@@ -313,41 +320,45 @@
 
         </div>
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q4">Sigueinte</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q4" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
@@ -359,7 +370,7 @@
       <div class="modal-content">
         <div class="modal-header">
           
-          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta:4</h5>
+          <h5 class="modal-title info" id="exampleModalLongTitle">Pregunta: 4</h5>
           
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -367,41 +378,45 @@
 
         </div>
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q5">Sigueinte</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q5" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
@@ -420,43 +435,46 @@
           </button>
 
         </div>
-        
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q6">Sigueinte</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q6" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
@@ -476,41 +494,45 @@
 
         </div>
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q7">Sigueinte</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q7" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
@@ -530,41 +552,45 @@
 
         </div>
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q8">Sigueinte</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q8" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
@@ -584,41 +610,45 @@
 
         </div>
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q9">Sigueinte</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q9" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
@@ -638,41 +668,45 @@
 
         </div>
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q10">Sigueinte</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#Q10" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
@@ -692,47 +726,60 @@
 
         </div>
         <div class="modal-body">
+
           <div class="modal-data" >
-            <h5 class="data">Realice la siguiente operación</h5>
+            <h5 class="data">{{ question.statement }}</h5>
           </div>
           
-            <div class="modal-data">
-                <h5 class="data">5.85 * 8.78</h5>
-            </div>
-
             <hr style="color: black;"/>
 
             <div class="data form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="answer1" v-model="userAnswer">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    53.32
+                    {{ answer1 }}
                 </label>
             </div>
 
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer2" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    55.28
+                    {{ answer2 }}
                 </label>
             </div>
             
             <div class="form-check text-center">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer3" v-model="userAnswer" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    51.36
+                    {{ answer3 }}
+                </label>
+            </div>
+
+            <div class="form-check text-center">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="answer4" v-model="userAnswer" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    {{ answer4 }}
                 </label>
             </div>
             
         </div>
 
         <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sigueinte</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" v-on:click="questionTransition">Enviar respuesta</button>
         </div>
 
       </div>
     </div>
   </div>
+
+
  
+
+
+
+
+
+
+
 
  
 
@@ -757,7 +804,15 @@ export default {
     groups: [],
     modalName: 'test',
     modalId: 'test',
-    quizzes: []
+    statement: 'questiontest',
+    quizzes: [],
+    question: {},
+    answer1: 0,
+    answer2: 0,
+    answer3: 0,
+    answer4: 0,
+    userAnswer: 'None',
+    quizId: 'test',
   }),
   async beforeMount() {
     const response = await studentGroups.getGroups();
@@ -784,11 +839,31 @@ export default {
     },
     async getQuestion(quizzId) {
       const response = await studentQuizzes.getQuestionLogic(quizzId);
-      console.log(response.data);
+      this.question = response.data.response;
+      const variables = this.question.options.variables;
+      this.statement = this.question.statement;
+      this.quizId = quizzId;
+      this.answer1 = this.question.options.paths[0].answer;
+      this.answer2 = this.question.options.paths[1].answer;
+      this.answer3 = this.question.options.paths[2].answer;
+      this.answer4 = this.question.options.paths[3].answer;
+      this.question = response.data.response;
+
+      this.question.statement = this.question.statement.replace("$1", variables[0]);
+      this.question.statement = this.question.statement.replace("$2", variables[1]);
+      this.question.statement = this.question.statement.replace("$3", variables[2]);
+      this.question.statement = this.question.statement.replace("$4", variables[3]);
+      this.question.statement = this.question.statement.replace("$5", variables[5]);
+
+
     },
     async createQuiz(groupId) {
       await studentQuizzes.postQuiz(groupId);
-    }
+    },
+    async questionTransition() {
+      await studentQuizzes.postQuestionLogic(this.quizId, this.question.id, this.question.options.id, this[this.userAnswer]);
+      await this.getQuestion(this.quizId);
+    },
   }
 };
 </script>
@@ -889,6 +964,15 @@ export default {
   font-weight: 900;
   margin-top: 50px;
   margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.text-header-1 .btn
+{
+  background: #106043;
+  color: #ffffff;
 }
 
 /* TITLE SECTION */
@@ -1028,6 +1112,14 @@ export default {
   color: azure;
   font-family: 'Baloo Bhaijaan 2', cursive;
   font-weight: 600;
+}
+
+.form-check-label
+{
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-weight: 600;
+  font-size: 30px;
+  color: azure;
 }
 
 

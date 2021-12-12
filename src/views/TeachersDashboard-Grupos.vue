@@ -174,6 +174,8 @@
               <h5 class="info">ID:</h5>
               <h5 class="data">{{ groupID }}</h5>
             </div>
+
+            <button type="button" class="btn btn-cpy btn-secondary" data-dismiss="modal">Copiar invitacion</button>
             <!--
             <div class="modal-data">
               <h5 class="info">Alumnos Inscritos:</h5>
@@ -513,6 +515,15 @@ export default {
   margin-top: 10px
 }
 
+.btn-cpy
+{
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  color:white;
+  background: #1C3E92;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
 
 /* SHAPE DIVIDER */
 .custom-shape-divider-bottom-1639115775 {
@@ -550,6 +561,13 @@ export default {
   background: #0E72B9;
 }
 
+.modal-body
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .modal-title
 {
   font-family: 'Nunito Sans', sans-serif;
@@ -559,11 +577,11 @@ export default {
 }
 
 .modal-data{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-top: 20px;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+    font-weight: 600;
+    font-size: 30px;
+    color: azure;
+    text-align: center;
 }
 
 .modal-data .info
