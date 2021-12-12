@@ -125,6 +125,7 @@
         <div class="card-section row">
 
           <div class="col-sm" v-for="(group, index) in groups" :key="index">
+            
             <div class="card">
               <img src="../assets/iconos-landing/icon-grad.png" class="card-img-top" alt="...">
               <div class="card-body">
@@ -141,8 +142,9 @@
           <div class="card card-body" style="background-color: #fff0;">
             
               <div class="card-section row">
-
+                <h5 class="card-title text-center">Aprovechamiento proyectado: {{ lhPro }}</h5>
                 <div class="col-sm" v-for="(quiz, index) in quizzes" :key="index">
+                {{ quizzes }}                  
                   <div class="card">
                     <img src="../assets/iconos-landing/icon-test.png" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -813,6 +815,7 @@ export default {
     answer4: 0,
     userAnswer: 'None',
     quizId: 'test',
+    lhPro: 50,
   }),
   async beforeMount() {
     const response = await studentGroups.getGroups();
@@ -836,6 +839,8 @@ export default {
     async getQuizzes(groupId) {
       const response = await studentQuizzes.geQuizzesLogic(groupId);
       this.quizzes = response.data;
+      delete this.quizzes.lrExpect;
+      this.lhPro = Math.ceil(this.quizzes.lrExpect[0] * 100);
     },
     async getQuestion(quizzId) {
       const response = await studentQuizzes.getQuestionLogic(quizzId);
@@ -853,7 +858,7 @@ export default {
       this.question.statement = this.question.statement.replace("$2", variables[1]);
       this.question.statement = this.question.statement.replace("$3", variables[2]);
       this.question.statement = this.question.statement.replace("$4", variables[3]);
-      this.question.statement = this.question.statement.replace("$5", variables[5]);
+      this.question.statement = this.question.statement.replace("$5", variables[4]);
 
 
     },
