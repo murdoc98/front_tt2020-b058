@@ -7,7 +7,7 @@
     <section>
       <nav class="navbar navbar-expand-lg navbar-light">
         
-        <a class="navbar-brand" href="/student/dashboard" v-on:click='this.$router.push({name: "StudentsDashboardGrupos"});'>
+        <a class="navbar-brand" href="#" v-on:click='this.$router.push({name: "StudentsDashboardGrupos"});'>
           <img
             class="icon_EvaIO"
             src="../assets/logoElements/iconEvaIO.png"

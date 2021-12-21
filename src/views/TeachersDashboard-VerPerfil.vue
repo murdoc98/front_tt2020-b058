@@ -7,7 +7,7 @@
     <section>
       <nav class="navbar navbar-expand-lg navbar-light">
         
-        <a class="navbar-brand" href="/teachers/dashboard" v-on:click='this.$router.push({name: "StudentsDashboardGrupos"});'>
+        <a class="navbar-brand" href="#" v-on:click='this.$router.push({name: "TeachersDashboardGrupos"});'>
           <img
             class="icon_EvaIO"
             src="../assets/logoElements/iconEvaIO.png"
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             
-            <a class="nav-item nav-link" href="/teachers/grupos" v-on:click='this.$router.push({name: "TeacherDashboardGrupos"});'>Grupos</a
+            <a class="nav-item nav-link" href="#" v-on:click='this.$router.push({name: "TeachersDashboardGrupos"});'>Grupos</a
             >
             
             <hr class="divider-menu mobile" color="black" />
@@ -108,10 +108,6 @@
                 <div class="ver-perfil">
                     <h5 class="info">Correo:</h5>
                     <h5 class="data">{{ email }}</h5>
-                </div>
-                <div class="ver-perfil">
-                    <h5 class="info">Última Conexión:</h5>
-                    <h5 class="data">{{ iat }}</h5>
                 </div>
             </div>
         </div>

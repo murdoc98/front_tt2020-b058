@@ -7,7 +7,7 @@
     <section>
       <nav class="navbar navbar-expand-lg navbar-light">
         
-        <a class="navbar-brand" href="/student/dashboard" v-on:click='this.$router.push({name: "StudentsDashboardGrupos"});'>
+        <a class="navbar-brand" href="#" v-on:click='this.$router.push({name: "StudentsDashboardGrupos"});'>
           <img
             class="icon_EvaIO"
             src="../assets/logoElements/iconEvaIO.png"
@@ -143,8 +143,7 @@
             
               <div class="card-section row">
                 <h5 class="card-title text-center">Aprovechamiento proyectado: {{ lhPro }}</h5>
-                <div class="col-sm" v-for="(quiz, index) in quizzes" :key="index">
-                {{ quizzes }}                  
+                <div class="col-sm" v-for="(quiz, index) in quizzes" :key="index">                 
                   <div class="card">
                     <img src="../assets/iconos-landing/icon-test.png" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -839,8 +838,8 @@ export default {
     async getQuizzes(groupId) {
       const response = await studentQuizzes.geQuizzesLogic(groupId);
       this.quizzes = response.data;
-      delete this.quizzes.lrExpect;
       this.lhPro = Math.ceil(this.quizzes.lrExpect[0] * 100);
+      delete this.quizzes.lrExpect;
     },
     async getQuestion(quizzId) {
       const response = await studentQuizzes.getQuestionLogic(quizzId);

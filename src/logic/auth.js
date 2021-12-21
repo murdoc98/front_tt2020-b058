@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const api = 'http://64.227.8.125:1025/api/';
+const api = 'https://evaio.mx/api/';
 
 export default {
   setUserToken(token) {

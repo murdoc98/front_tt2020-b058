@@ -8,7 +8,7 @@
       <section>
         <nav class="navbar navbar-expand-lg navbar-light">
           
-          <a class="navbar-brand" href="/teachers/dashboard">
+          <a class="navbar-brand nav-link" href="#" v-on:click='this.$router.push({name: "TeachersDashboardGrupos"});'>
             <img
               class="icon_EvaIO"
               src="../assets/logoElements/iconEvaIO.png"

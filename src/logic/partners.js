@@ -1,7 +1,7 @@
 import axios from "axios";
 import auth from "./auth";
 
-const ENDPOINT_PATH = "http://64.227.8.125:1025/api/";
+const ENDPOINT_PATH = "https://evaio.mx/api/";
 
 export default {
   getPartners() {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import auth from './auth';
 
-const api = 'http://64.227.8.125:1025/api/teachers';
+const api = 'https://evaio.mx/api/teachers';
 
 export default {
   getGroups() {
